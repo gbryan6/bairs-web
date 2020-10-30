@@ -1,0 +1,11 @@
+body{
+    background-color: var(--color-secondary);
+    background-image: url('../images/Bakground.svg');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    --color-primary: #FF7A00;
+    --color-secondary: #FFF0E1;
+    --color-button: #3545DF;
+    --color-button-hover: #5D6CFD;
+    --color-text: #472B00;
+}
