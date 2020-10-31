@@ -8,11 +8,11 @@ function Home() {
     return(
         <>
         <div className='home__content'>
-            <header className='top__bar'>
                 <Header />
-            </header>
-            <section>
-                Aqui vai ficar o feed
+            <section className="home__section">
+                <div className="home__feed">
+                    <h1>aqui vai ficar o feed</h1>
+                </div>
             </section>
         </div>
         </>

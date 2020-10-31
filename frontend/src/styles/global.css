@@ -1,11 +1,35 @@
+
+html {
+    /* setado a 62.5% do root total de 16px, a cada 1rem será considerado 10px */
+    font-size: 62.5%;
+    
+  }
+
 body{
+    font-size: 1.6rem;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
     background-color: var(--color-secondary);
     background-image: url('../images/Bakground.svg');
-    background-repeat: no-repeat;
-    background-size: 100vw;
+    background-size: cover;
+    background-attachment: fixed;
+    
+
     --color-primary: #FF7A00;
     --color-secondary: #FFF0E1;
     --color-button: #3545DF;
     --color-button-hover: #5D6CFD;
     --color-text: #472B00;
 }
+
+input, button, a{
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
