@@ -3,6 +3,7 @@ import React from 'react';
 import '../styles/pages/home.css';
 
 import Header from '../components/header';
+import Feed from '../components/feed'
 
 function Home() {
     return(
@@ -11,7 +12,8 @@ function Home() {
                 <Header />
             <section className="home__section">
                 <div className="home__feed">
-                    <h1>aqui vai ficar o feed</h1>
+                    
+                    <Feed />
                 </div>
             </section>
         </div>

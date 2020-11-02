@@ -6,9 +6,22 @@
 }
 
 .home__section{
-    max-width: 70%;
+    width: 100%;
+    height: 90vh;
     display: flex;
-    align-items: center;
     justify-content: center;
     margin: auto;
+    overflow-y: hidden;
+    
+}
+
+.home__feed{
+    width: 80%;
+    height: 100vh;
+    overflow-y: scroll;
+    
+}
+
+.home__feed::-webkit-scrollbar{
+    width: 0px;
 }
