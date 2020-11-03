@@ -1,0 +1,42 @@
+.register__all{
+    background-color: var(--color-secondary);
+    height: 100vh;
+    width: 100vw;
+}
+
+.form{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form__student{
+    margin: auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.form__student input,select{
+    width: 400px;
+    height: 35px;
+
+    background: #FFFFFF;
+    border: 2px solid rgba(255, 122, 0, 0.3);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.form__student label{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+
+    margin-top: 10px;
+    text-align: initial;
+}
+
+.student__photo{
+    display: flex;
+}

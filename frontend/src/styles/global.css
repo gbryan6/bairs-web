@@ -15,12 +15,6 @@ body{
     padding: 0;
     box-sizing: border-box;
 
-    background-color: var(--color-secondary);
-    background-image: url('../images/Bakground.svg');
-    background-size: cover;
-    background-attachment: fixed;
-    
-
     --color-primary: #FF7A00;
     --color-secondary: #FFF0E1;
     --color-button: #3545DF;
