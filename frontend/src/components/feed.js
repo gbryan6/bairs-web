@@ -24,6 +24,7 @@ function Feed() {
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     )

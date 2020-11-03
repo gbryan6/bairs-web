@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
 }
 .feed__container{
     display: grid;
@@ -16,7 +17,7 @@
     font-weight: bold;
     font-size: 36px;
     color: var(--color-text);
-
+    
     margin-bottom: 20px;
     padding-bottom: 0;
     border-bottom: 3px solid var(--color-text);
