@@ -1,3 +1,70 @@
+.form{
+    max-width: 1000px;
+    margin: 20px auto;
+    
+}
+
+.form__flex{
+    display: flex;
+    
+}
+
+.form__flex #genre, #birth{
+    margin: 0;
+    width: 180px;
+}
+
+.form__flex > label{
+    width: 200px;
+    align-content: center;
+}
+
+
+a#prox{
+    width: 400px;
+    height: 37px;
+    background-color: #5D6CFD;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+label#thumbnail {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    max-width: 180px;
+    max-height: 180px;
+}
+
+label#thumbnail svg{
+    width: 180px;
+    height: 180px;
+    padding-bottom: 5px;
+}
+
+label#thumbnail input{
+    display: none;
+}
+
+label#thumbnail.has-thumbnail path{
+    display: none;
+}
+
+label#thumbnail.has-thumbnail{
+    border-radius: 50%;
+    border: 1px solid rgba(255, 122, 0, 0.3);
+}
+
+
+
 .register__all{
     background-color: var(--color-secondary);
     height: 100vh;
@@ -18,13 +85,19 @@
 }
 
 .form__student input,select{
-    width: 400px;
+    max-width: 400px;
+    width: auto;
     height: 35px;
 
     background: #FFFFFF;
     border: 2px solid rgba(255, 122, 0, 0.3);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+}
+
+.form__student input, select{
+    padding: 0 8px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .form__student label{

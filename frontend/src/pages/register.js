@@ -1,54 +1,68 @@
-import React from 'react';
+import React,{ useState, useMemo }from 'react';
 
+import { FaUserCircle } from 'react-icons/fa'
 import '../styles/pages/register.css';
 import RegisterHead from '../components/registerHead.js';
-import photo_student from '../images/perfilP.jpg';
+
 
 function Register() {
+
+  const [thumbnail, setThumbnail] = useState(null);
+
+  const preview = useMemo(
+    () => {
+      return thumbnail ? URL.createObjectURL(thumbnail) : null;
+    },[thumbnail]
+  )
   return (
     <div className="register__all">
       <RegisterHead />
       <div className="form">
-      <div className="form__content">
-      <form className="form__student">
-        <label htmlFor="name">Nome completo</label>
-        <input type="text" name="name" id="name" required />
+        <div className="form__content">
+          <form className="form__student">
+            <label htmlFor="name">Nome completo</label>
+            <input type="text" name="name" id="name" required />
 
-        <label htmlFor="nickname">Como gostaria de ser chamado ?</label>
-        <input type="text" name="nickname" id="nickname" />
+            <label htmlFor="nickname">Como gostaria de ser chamado ?</label>
+            <input type="text" name="nickname" id="nickname" />
 
-        <label htmlFor="email">E-mail válido</label>
-        <input type="text" name="email" id="email" required />
+            <label htmlFor="email">E-mail válido</label>
+            <input type="text" name="email" id="email" required />
 
-        <label htmlFor="password">Senha</label>
-        <input type="password" name="password" id="password" required />
+            <label htmlFor="password">Senha</label>
+            <input type="password" name="password" id="password" required />
 
-        <label htmlFor="">Breve descrição</label>
-        <input type="text" id="description" />
+            <label htmlFor="description">Breve descrição</label>
+            <input type="text" id="description" />
 
-        <label htmlFor="">Data de nascimento</label>
-        <input type="date" id="nascimento" required />
+            <div className="form__flex">
+              <label htmlFor="genre">Gênero
+              <select id="genre" name="genre">
+                <option selected value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="outro">Outro</option>
+              </select>
+              </label>
 
-        <label htmlFor="">CPF</label>
-        <input type="number" id="cpf" required />
+              <label htmlFor="birth">Data de nascimento
+              <input type="date" id="birth" required />
+              </label>
+            </div>
 
-        <label htmlFor="">Gênero</label>
-        <select>
-          <option value="laranja">Feminino</option>
-          <option value="limao">Masculino</option>
-          <option selected value="coco">Outro</option>
-        </select>
-      </form>
-      </div>
-      <div className="student__photo">  
-        <label htmlFor="">Inserir foto</label>
-        <input type="file" id="photo" required />
-        <div className="photo">
-          <img src={photo_student} alt="foto de perfil"/>
+            <label htmlFor="cpf">CPF</label>
+            <input type="number" id="cpf" required />
+
+            <a href="#" type="submit" id="prox">Proximo</a>
+          </form>
         </div>
+        
+          <label id="thumbnail" style={{ backgroundImage: `url(${preview})`, backgroundSize: "contain", backgroundPosition: "top"  }} className={thumbnail ? 'has-thumbnail': ''}>
+            <input type="file" onChange={event => setThumbnail(event.target.files[0])} id="photo" />
+            <FaUserCircle className="icon"/>
+          </label>
+
       </div>
-      </div>
-     
+
 
     </div>
   )
