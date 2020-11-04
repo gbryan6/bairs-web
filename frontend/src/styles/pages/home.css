@@ -1,28 +1,27 @@
-.all__content{
+.all__content {
     background-color: var(--color-secondary);
     background-image: url('../../images/Bakground.svg');
     background-size: cover;
     background-attachment: fixed;
 }
 
-.home__content{
+.home__content {
     height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
 }
 
-.home__section{
+.home__section {
     width: 100%;
     height: 90vh;
     display: flex;
     justify-content: center;
     margin: auto;
     overflow-y: hidden;
-    
 }
 
-.home__feed{
+.home__feed {
     width: 80%;
     max-width: 1200px;
     height: auto;
@@ -30,43 +29,40 @@
     overflow-x: hidden;
 }
 
-.home__feed::-webkit-scrollbar{
+.home__feed::-webkit-scrollbar {
     width: 16px;
     height: 16px;
-    overflow: visible;   
+    overflow: visible;
 }
 
-.home__feed::-webkit-scrollbar-button{
+.home__feed::-webkit-scrollbar-button {
     height: 0;
     width: 0;
 }
 
-.home__feed::-webkit-scrollbar-corner{
+.home__feed::-webkit-scrollbar-corner {
     background-clip: padding-box;
     color: #f5f5f5;
     border: solid #fff;
     border-width: 3px 0 0 3px;
-    box-shadow:inset 1px 1px 0 rgba(0,0,0,.14);
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .14);
 }
 
-.home__feed::-webkit-scrollbar-corner{
+.home__feed::-webkit-scrollbar-corner {
     background: transparent;
 }
 
-.home__feed::-webkit-scrollbar-thumb{
+.home__feed::-webkit-scrollbar-thumb {
     border-width: 1px 1px 1px 5px;
 }
 
-.home__feed::-webkit-scrollbar-thumb{
-    background-color: rgba(148, 98, 52, 0.212); /* cor da barra*/
+.home__feed::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 98, 52, 0.212);
+    /* cor da barra*/
     background-clip: padding-box;
     border: solid transparent;
     border-width: 1px 1px 1px 6px;
     min-height: 28px;
     padding: 100px 0 0;
-    box-shadow: inset 1px 1px 0 rgba(0,0,0, .1),
-    inset 0 -1px 0 rgba(0,0,0, .07);
-
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
 }
-
-

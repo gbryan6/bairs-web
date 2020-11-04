@@ -1,26 +1,4 @@
-.form{
-    max-width: 1000px;
-    margin: 20px auto;
-    
-}
-
-.form__flex{
-    display: flex;
-    
-}
-
-.form__flex #genre, #birth{
-    margin: 0;
-    width: 180px;
-}
-
-.form__flex > label{
-    width: 200px;
-    align-content: center;
-}
-
-
-a#prox{
+#prox {
     width: 400px;
     height: 37px;
     background-color: #5D6CFD;
@@ -35,81 +13,115 @@ a#prox{
     border-radius: 5px;
 }
 
+.teste {
+    height: 600px;
+}
+
 label#thumbnail {
     display: flex;
     align-items: center;
     flex-direction: column;
     font-family: "Montserrat", sans-serif;
-    max-width: 180px;
-    max-height: 180px;
+    max-width: 185px;
+    max-height: 185px;
+    cursor: pointer;
 }
 
-label#thumbnail svg{
+label#thumbnail svg {
     width: 180px;
     height: 180px;
-    padding-bottom: 5px;
 }
 
-label#thumbnail input{
+label#thumbnail input {
     display: none;
 }
 
-label#thumbnail.has-thumbnail path{
+label#thumbnail.has-thumbnail path {
     display: none;
 }
 
-label#thumbnail.has-thumbnail{
+label#thumbnail.has-thumbnail {
     border-radius: 50%;
-    border: 1px solid rgba(255, 122, 0, 0.3);
+    border: 2px solid rgba(255, 122, 0, 0.3);
+    margin-top: 10px;
 }
 
+.form {
+    max-width: 1000px;
+    margin: 20px auto;
+}
 
+.form__flex {
+    display: flex;
+}
 
-.register__all{
-    background-color: var(--color-secondary);
+.form__photo p {
+    text-align: center;
+    margin-top: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.form__flex #genre,
+#birth {
+    margin: 0;
+    width: 180px;
+}
+
+.form__flex>label {
+    width: 200px;
+    align-content: center;
+}
+
+.register__all {
+    background-color: white;
     height: 100vh;
     width: 100vw;
 }
 
-.form{
+.form__area {
+    max-width: 800px;
+    margin: auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
-.form__student{
-    margin: auto;
+.form__student {
     width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center
 }
 
-.form__student input,select{
+.form__student input,
+select {
     max-width: 400px;
     width: auto;
     height: 35px;
-
     background: #FFFFFF;
     border: 2px solid rgba(255, 122, 0, 0.3);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
 }
 
-.form__student input, select{
+.form__student input:focus {
+    outline: none;
+}
+
+.form__student input,
+select {
     padding: 0 8px;
     font-family: "Montserrat", sans-serif;
 }
 
-.form__student label{
+.form__student label {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-
     margin-top: 10px;
+    margin-bottom: 5px;
     text-align: initial;
 }
 
-.student__photo{
+.student__photo {
     display: flex;
 }

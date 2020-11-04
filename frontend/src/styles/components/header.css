@@ -1,14 +1,13 @@
-.top-bar__content{
+.top-bar__content {
     display: flex;
-    align-items:  center;
+    align-items: center;
     position: relative;
     width: 100%;
     height: 6.3rem;
     justify-content: space-around;
-   
 }
 
-.top-bar__search{
+.top-bar__search {
     display: flex;
     background-color: white;
     min-width: 250px;
@@ -19,33 +18,33 @@
     justify-content: space-between;
     padding: 0 1.1rem;
     border-radius: 0.2rem;
-    box-shadow:0px 1px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     justify-self: center;
 }
 
-.top-bar__search > input{
+.top-bar__search>input {
     width: 100%;
     height: 95%;
 }
 
-.top-bar__search > input:focus{
+.top-bar__search>input:focus {
     outline: none;
 }
 
-.search__icon{
-    width: min(5vw,  25px);
+.search__icon {
+    width: min(5vw, 25px);
     height: 100%;
 }
 
-.icon-button:hover{
+.icon-button:hover {
     background-color: rgba(221, 221, 221, 0.5);
 }
 
-.icon-button:active{
+.icon-button:active {
     background-color: rgba(156, 156, 156, 0.2);
 }
 
-.icon-button{
+.icon-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,23 +54,22 @@
     transition: 0.9s;
 }
 
-.top-bar__login{
+.top-bar__login {
     width: 9.6rem;
     height: 3.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-
 }
 
-.top-bar__login a{
+.top-bar__login a {
     text-decoration: none;
     color: var(--text-color);
     font-size: 12px;
 }
 
-.top-bar__login img{
+.top-bar__login img {
     width: 3.6rem;
     height: 3.6rem;
     border-radius: 50%;
@@ -79,22 +77,22 @@
     margin-right: 10px;
 }
 
-.top-bar__button{
+.top-bar__button {
     height: 37px;
     width: 150px;
     background-color: var(--color-button);
     border-radius: 3px;
     font-size: 15px;
     color: white;
-    box-shadow:0px 1px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     transition: all 0.9s;
 }
 
-.top-bar__button:hover{
+.top-bar__button:hover {
     background-color: var(--color-button-hover);
 }
 
-.notification{
+.notification {
     width: 20px;
     height: 20px;
 }

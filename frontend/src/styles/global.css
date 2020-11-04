@@ -1,21 +1,16 @@
-
 html {
     /* setado a 62.5% do root total de 16px, a cada 1rem será considerado 10px */
     font-size: 62.5%;
-    
-  }
+}
 
-body{
+body {
     font-size: 1.6rem;
 }
 
-
-body{
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-
     --color-primary: #FF7A00;
     --color-secondary: #FFF0E1;
     --color-button: #3545DF;
@@ -23,8 +18,9 @@ body{
     --color-text: #472B00;
 }
 
-input, button, a{
+input,
+button,
+a {
     border: none;
     font-family: 'Roboto', sans-serif;
 }
-
