@@ -1,47 +1,93 @@
-import React from 'react';
-import '../styles/pages/login.css'
-import Vector from '../images/svgLogin.svg';
+import React, {useState} from "react";
+import "../styles/pages/login.css";
+import Vector from "../images/svgLogin.svg";
+import { Link } from "react-router-dom";
 // import { Container } from './styles';
 
 function Login() {
-    return (
-        <div id="login__content">
-            <div className="login__content--left">
-                <div className="content__user">
-                    <div className="login__message">
-                        <h1>Servindo a você para encontrar  a sua necessidade.</h1>
-                        <p>Bem vindo, por favor logue em sua conta</p>
-                    </div>
-                    <div className="content__login">
-                        <form className="user__login">
-                        
-                        <div className="wrapper">
-                            <div className="input__data">
-                                <input type="text" name="" id="" />
-                                <label htmlFor="">Usuario</label>
-                            </div>
-                        </div>
-                        <div className="wrapper">
-                            <div className="input__data">
-                                <input type="password" name="" id="" />
-                                <label htmlFor="">Senha  </label>
-                            </div>
-                        </div>
 
-                            <input type="radio" name="" id="" value="Lembre de mim"/> 
-                            <a href="">esqueceu a senha</a>
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
+    const [remember, setRemember] = useState(false);
 
-                            <button>Entrar</button>
-                            <button>Registrar</button>
-                        </form>
-                    </div>
+    function handleLogin(e){
+        e.preventDefault();
+
+        const data = {
+            user,
+            password,
+            remember
+        }
+        console.log(data);
+    }
+
+  return (
+    <div id="login__content">
+      <div className="login__content--left">
+        <div className="content__user">
+          <div className="login__message">
+            <h1>BAIRS</h1>
+            <h2>Servindo a você para encontrar a sua necessidade.</h2>
+            <p>Bem Vindo, por favor logue em sua conta</p>
+          </div>
+          <div className="content__login">
+            <form className="user__login" onSubmit={handleLogin}>
+              <div className="wrapper">
+                <div className="input__data">
+                  <input
+                    type="text"
+                    name="user"
+                    id="user"
+                    value={user}
+                    onChange={e => setUser(e.target.value)}
+                    required
+                  />
+                  <label htmlFor="user">Usuário</label>
                 </div>
-            </div>
-            <div className="login__content--right">
-                <img src={Vector} alt="Conexão entre usuarios" />
-            </div>
+              </div>
+              <div className="wrapper">
+                <div className="input__data">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                  />
+                  <label htmlFor="password">Senha  </label>
+                </div>
+              </div>
+              <div className="wrapper__options">
+                <label htmlFor="remember" className="login__remember-me">
+                  <input
+                    type="checkbox"
+                    name="remember"
+                    id="remember"
+                    value={remember}
+                    onChange={e => setRemember(e.target.checked)}
+                  />
+                  Lembre de mim
+                </label>
+                <a href="">esqueceu a senha</a>
+              </div>
+              <div className="wrapper__buttons">
+                <div className="wrapper__content--buttons">
+                  <button className="login" type="submit">
+                    Entrar
+                  </button>
+                  <Link to="/register" className="register">Registrar</Link>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-    )
+      </div>
+      <div className="login__content--right">
+        <img src={Vector} alt="Conexão entre usuarios" />
+      </div>
+    </div>
+  );
 }
 
 export default Login;

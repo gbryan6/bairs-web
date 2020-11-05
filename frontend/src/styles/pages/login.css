@@ -1,11 +1,11 @@
 .content__user h1,
+h2,
 p,
 input,
 label,
 button {
     font-family: "Roboto";
 }
-
 
 #login__content {
     width: 100vw;
@@ -20,7 +20,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFF0E1;
+    background-color: #fff0e1;
 }
 
 .login__content--right img {
@@ -31,7 +31,7 @@ button {
 .login__content--left {
     width: 40%;
     height: 100vh;
-    background-color: #FF7A00;
+    background-color: #ff7a00;
 }
 
 .user__login {
@@ -48,6 +48,7 @@ button {
 
 .content__user {
     width: 80%;
+    max-width: 390px;
     height: 85%;
     margin: auto;
     display: flex;
@@ -57,19 +58,21 @@ button {
     align-items: center;
 }
 
-.login__message{
+.login__message {
     display: flex;
-    width: 80%;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    color: var(--color-text);
 }
 
 .login__message p {
-    margin: 60px 0;
+    margin: 30px 0;
 }
 
-.wrapper{
+.login__message h1 {
+    margin-bottom: 20px;
+}
+
+.wrapper {
     width: 350px;
     padding: 20px;
     background-color: white;
@@ -77,25 +80,22 @@ button {
     margin-top: 15px;
 }
 
-.wrapper .input__data{
+.wrapper .input__data {
     height: 40px;
     width: 100%;
     position: relative;
 }
 
-.wrapper .input__data input{
+.wrapper .input__data input {
     height: 100%;
     width: 100%;
     border: none;
     border-bottom: 1px solid var(--color-primary);
-    font-size: 15px;
+    font-size: 14px;
     outline: none;
-    
 }
 
-
-
-.wrapper .input__data label{
+.wrapper .input__data label {
     position: absolute;
     bottom: 10px;
     left: -25px;
@@ -103,13 +103,94 @@ button {
     color: gray;
     pointer-events: none;
     transition: all 0.5s ease;
+    font-size: 14px;
 }
 
-.input__data input:focus ~ label{
-    
+.input__data input:focus~label {
+    transform: translateY(-28px);
+}
+
+.input__data input:valid~label {
     transform: translateY(-28px);
 }
 
 .content__login {
     width: 100%;
+}
+
+.wrapper__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding: 15px 0;
+}
+
+.wrapper__options a {
+    text-decoration: none;
+    color: var(--color-text);
+    opacity: 0.7;
+}
+
+.wrapper__options label {
+    margin: 0;
+    width: 120px;
+    color: var(--color-text);
+}
+
+.wrapper__options input {
+    margin-right: 5px;
+}
+
+.wrapper__buttons {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.wrapper__content--buttons {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.wrapper__content--buttons button {
+    width: 80px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.wrapper__content--buttons button:hover {
+    background-color: var(--color-button-hover);
+}
+
+.wrapper__content--buttons button:focus {
+    outline: none;
+}
+
+.login {
+    background-color: var(--color-button);
+    color: white;
+}
+
+.register {
+    border: 1px solid var(--color-text);
+    color: var(--color-text);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    outline: none;
+    font-family: "Roboto", sans-serif;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.5s;
+}
+
+.register:focus {
+    background-color: orange
 }
