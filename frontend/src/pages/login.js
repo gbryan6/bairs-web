@@ -14,21 +14,21 @@ function Login() {
                     </div>
                     <div className="content__login">
                         <form className="user__login">
-
-                            <div className="user">
-                                <label htmlFor="">
-                                    Usuario
-                                </label>
+                        
+                        <div className="wrapper">
+                            <div className="input__data">
                                 <input type="text" name="" id="" />
+                                <label htmlFor="">Usuario</label>
                             </div>
-
-                            <div className="password">
-                                <label htmlFor="">
-                                    Senha</label>
+                        </div>
+                        <div className="wrapper">
+                            <div className="input__data">
                                 <input type="password" name="" id="" />
+                                <label htmlFor="">Senha  </label>
                             </div>
+                        </div>
 
-                            <input type="radio" name="" id="" /> Lembre de mim
+                            <input type="radio" name="" id="" value="Lembre de mim"/> 
                             <a href="">esqueceu a senha</a>
 
                             <button>Entrar</button>
