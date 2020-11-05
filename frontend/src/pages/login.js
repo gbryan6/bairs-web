@@ -1,24 +1,33 @@
 import React, {useState} from "react";
 import "../styles/pages/login.css";
 import Vector from "../images/svgLogin.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import api from '../services/api';
 // import { Container } from './styles';
 
 function Login() {
 
-    const [user, setUser] = useState('');
+    const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(false);
 
-    function handleLogin(e){
+    const history = useHistory();
+
+    async function handleLogin(e){
         e.preventDefault();
 
         const data = {
-            user,
+            mail,
             password,
-            remember
         }
-        console.log(data);
+        
+        try {
+          const response = await api.post('session/instituition', data);
+          localStorage.setItem('userId', response.data.id);
+          history.push('/');
+        } catch (error) {
+          alert('nao foi possivel'); 
+        }
     }
 
   return (
@@ -38,8 +47,8 @@ function Login() {
                     type="text"
                     name="user"
                     id="user"
-                    value={user}
-                    onChange={e => setUser(e.target.value)}
+                    value={mail}
+                    onChange={e => setMail(e.target.value)}
                     required
                   />
                   <label htmlFor="user">Usuário</label>
