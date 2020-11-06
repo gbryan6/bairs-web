@@ -2,8 +2,8 @@ import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Home from './pages/home.js';
 import Register from './pages/register.js';
-import Login from './pages/login.js'
-
+import Login from './pages/login.js';
+import RegisterAd from './pages/registerad.js';
 export default function Routes() {
   return (
     <BrowserRouter>
@@ -13,6 +13,8 @@ export default function Routes() {
         <Route path="/register" component={Register}/>
 
         <Route path="/login" component={Login}/>
+
+        <Route path="/newad" component={RegisterAd}/>
 
       </Switch>
     </BrowserRouter>

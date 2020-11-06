@@ -37,7 +37,7 @@ function Login() {
           <div className="login__message">
             <h1>BAIRS</h1>
             <h2>Servindo a você para encontrar a sua necessidade.</h2>
-            <p>Bem Vindo, por favor logue em sua conta</p>
+            <p>Bem vindo, por favor faça o login em sua conta.</p>
           </div>
           <div className="content__login">
             <form className="user__login" onSubmit={handleLogin}>

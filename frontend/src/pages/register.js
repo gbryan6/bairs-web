@@ -18,7 +18,7 @@ function Register() {
   }
   return (
     <div className="register__all">
-      <RegisterHead />
+      <RegisterHead title="Crie sua conta" desc="Dados Pessoais" />
       <div className="form">
         <div className="form__content">
           <form className="form__area" onSubmit={handleRegister}>

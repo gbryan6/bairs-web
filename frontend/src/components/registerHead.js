@@ -6,7 +6,7 @@ import '../styles/components/registerHead.css';
 import {Link} from 'react-router-dom';
 
 
-function HeaderReg() {
+function HeaderReg(props) {
   return (
     <div className="header__register">
       <div className="header__icons">
@@ -20,8 +20,8 @@ function HeaderReg() {
         </div>
       </div>
       <div className="header__title">
-        <h1>Crie sua conta</h1>
-        <p>Dados pessoais</p>
+        <h1>{props.title}</h1>
+        <p>{props.desc}</p>
       </div>
     </div>
   )
