@@ -26,14 +26,20 @@ function Register() {
               <label htmlFor="name">Nome completo</label>
               <input type="text" name="name" id="name" required />
 
-              <label htmlFor="nickname">Como gostaria de ser chamado ?</label>
+              <div className="wrapper__form">
+              <label htmlFor="nickname">Usuario
               <input type="text" name="nickname" id="nickname" required />
+              </label>
+
+              <label htmlFor="password">Senha
+              <input type="password" name="password" id="password" required />
+              </label>
+              </div>
 
               <label htmlFor="email">E-mail válido</label>
               <input type="text" name="email" id="email" required />
 
-              <label htmlFor="password">Senha</label>
-              <input type="password" name="password" id="password" required />
+              
 
               <label htmlFor="description">Breve descrição</label>
               <input type="text" id="description" name="description" />
@@ -41,7 +47,7 @@ function Register() {
               <div className="form__flex">
                 <label htmlFor="genre">
                   Gênero
-                  <select id="genre" name="genre">
+                  <select id="genre" name="genre" className="genre">
                     <option selected value="feminino">
                       Feminino
                     </option>
@@ -81,6 +87,7 @@ function Register() {
                 <FaUserCircle className="icon" />
               </label>
               <p>Inserir foto</p>
+              
             </div>
           </form>
         </div>

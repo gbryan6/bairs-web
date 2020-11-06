@@ -1,5 +1,5 @@
 #prox {
-    width: 400px;
+    width: 350px;
     height: 37px;
     background-color: #5D6CFD;
     color: white;
@@ -11,6 +11,7 @@
     text-decoration: none;
     margin-top: 20px;
     border-radius: 5px;
+    align-self: center;
 }
 
 .teste {
@@ -53,6 +54,7 @@ label#thumbnail.has-thumbnail {
 
 .form__flex {
     display: flex;
+    justify-content: space-between;
 }
 
 .form__photo p {
@@ -61,14 +63,20 @@ label#thumbnail.has-thumbnail {
     font-family: "Montserrat", sans-serif;
 }
 
-.form__flex #genre,
-#birth {
-    margin: 0;
-    width: 180px;
+
+.form__flex #birth{
+    width: 172px;
+    padding: 0 5px;
+    max-width: 187px;
+}
+
+.form__flex #genre{
+    height: 45px;
+    width: 100%;
 }
 
 .form__flex>label {
-    width: 200px;
+    width: 187px;
     align-content: center;
 }
 
@@ -96,7 +104,8 @@ label#thumbnail.has-thumbnail {
 select {
     max-width: 400px;
     width: auto;
-    height: 35px;
+    height: 41px;
+    font-size: 14px;
     background: #FFFFFF;
     border: 2px solid rgba(255, 122, 0, 0.3);
     border-radius: 5px;
@@ -108,8 +117,9 @@ select {
 
 .form__student input,
 select {
-    padding: 0 8px;
+    
     font-family: "Montserrat", sans-serif;
+    padding: 0 7px;
 }
 
 .form__student label {
@@ -125,3 +135,16 @@ select {
 .student__photo {
     display: flex;
 }
+
+.wrapper__form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper__form label{
+    width: 187px;
+    display: flex;
+    flex-direction: column;
+}
+
+
