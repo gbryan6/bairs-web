@@ -1,0 +1,88 @@
+.newad__registerarea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__content--ad {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+.form__content--ad form {
+    display: flex;
+}
+
+.form__content--ad input {
+    max-width: 400px;
+    width: auto;
+    height: 41px;
+    font-size: 14px;
+    background: #FFFFFF;
+    border: 2px solid rgba(255, 122, 0, 0.3);
+    border-radius: 5px;
+}
+
+.form__content--ad input:focus {
+    outline: none;
+}
+
+.form__content--ad input,
+select {
+    font-family: "Montserrat", sans-serif;
+    padding: 0 7px;
+}
+
+.form__content--ad label {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: initial;
+}
+
+.wrapper__ad {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.photos__ad {
+    margin-top: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photos__ad label {
+    border: 2px solid rgba(255, 122, 0, 0.3);
+}
+
+.inputs__area {
+    width: 400px;
+    margin: 0;
+}
+
+#main {
+    width: 208px;
+    height: 200px;
+    padding: 0;
+}
+
+#sec {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+}
+
+.small {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+}

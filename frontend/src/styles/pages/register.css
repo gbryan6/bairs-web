@@ -63,14 +63,13 @@ label#thumbnail.has-thumbnail {
     font-family: "Montserrat", sans-serif;
 }
 
-
-.form__flex #birth{
+.form__flex #birth {
     width: 172px;
     padding: 0 5px;
     max-width: 187px;
 }
 
-.form__flex #genre{
+.form__flex #genre {
     height: 45px;
     width: 100%;
 }
@@ -117,7 +116,6 @@ select {
 
 .form__student input,
 select {
-    
     font-family: "Montserrat", sans-serif;
     padding: 0 7px;
 }
@@ -136,15 +134,13 @@ select {
     display: flex;
 }
 
-.wrapper__form{
+.wrapper__form {
     display: flex;
     justify-content: space-between;
 }
 
-.wrapper__form label{
+.wrapper__form label {
     width: 187px;
     display: flex;
     flex-direction: column;
 }
-
-

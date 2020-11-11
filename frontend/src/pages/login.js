@@ -26,7 +26,7 @@ function Login() {
           localStorage.setItem('userId', response.data.id);
           history.push('/');
         } catch (error) {
-          alert('nao foi possivel'); 
+          return ; 
         }
     }
 
@@ -65,6 +65,9 @@ function Login() {
                     required
                   />
                   <label htmlFor="password">Senha  </label>
+                </div>
+                <div>
+                  <p>{}</p>
                 </div>
               </div>
               <div className="wrapper__options">

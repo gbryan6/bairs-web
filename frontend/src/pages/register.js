@@ -6,13 +6,13 @@ import RegisterHead from "../components/registerHead.js";
 
 function Register() {
   const [thumbnail, setThumbnail] = useState(null);
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState("");
 
   const preview = useMemo(() => {
     return thumbnail ? URL.createObjectURL(thumbnail) : null;
   }, [thumbnail]);
 
-  function handleRegister(e){
+  function handleRegister(e) {
     e.preventDefault();
     console.log(date);
   }
@@ -27,19 +27,24 @@ function Register() {
               <input type="text" name="name" id="name" required />
 
               <div className="wrapper__form">
-              <label htmlFor="nickname">Usuario
-              <input type="text" name="nickname" id="nickname" required />
-              </label>
+                <label htmlFor="nickname">
+                  Usuario
+                  <input type="text" name="nickname" id="nickname" required />
+                </label>
 
-              <label htmlFor="password">Senha
-              <input type="password" name="password" id="password" required />
-              </label>
+                <label htmlFor="password">
+                  Senha
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    required
+                  />
+                </label>
               </div>
 
               <label htmlFor="email">E-mail válido</label>
               <input type="text" name="email" id="email" required />
-
-              
 
               <label htmlFor="description">Breve descrição</label>
               <input type="text" id="description" name="description" />
@@ -58,7 +63,14 @@ function Register() {
 
                 <label htmlFor="birth">
                   Data de nascimento
-                  <input type="date" id="birth" name="birth" value={date} onChange={ e => setDate(e.target.value)} required />
+                  <input
+                    type="date"
+                    id="birth"
+                    name="birth"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    required
+                  />
                 </label>
               </div>
 
@@ -75,7 +87,8 @@ function Register() {
                 style={{
                   backgroundImage: `url(${preview})`,
                   backgroundSize: "contain",
-                  backgroundPosition: "top",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
                 }}
                 className={thumbnail ? "has-thumbnail" : ""}
               >
@@ -87,7 +100,6 @@ function Register() {
                 <FaUserCircle className="icon" />
               </label>
               <p>Inserir foto</p>
-              
             </div>
           </form>
         </div>
