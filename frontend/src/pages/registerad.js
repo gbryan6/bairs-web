@@ -14,42 +14,50 @@ function RegisterAd() {
           <form action="">
             <div className="inputs__area">
               <div className="wrapper__ad">
-                <label htmlFor="name">Nome completo</label>
+                <label htmlFor="name">Qual produto ?</label>
                 <input type="text" name="name" id="name" required />
               </div>
               <div className="wrapper__ad">
-                <label htmlFor="name">Nome completo</label>
+                <label htmlFor="name">Descrição</label>
                 <input type="text" name="name" id="name" required />
               </div>
               <div className="wrapper__ad">
-                <label htmlFor="name">Nome completo</label>
+                <label htmlFor="name">Preço</label>
                 <input type="text" name="name" id="name" required />
               </div>
               <div className="wrapper__ad">
-                <label htmlFor="name">Nome completo</label>
+                <label htmlFor="name">Categoria</label>
                 <input type="text" name="name" id="name" required />
               </div>
               <div className="wrapper__ad">
-                <label htmlFor="name">Nome completo</label>
+                <label htmlFor="name">Tipo</label>
                 <input type="text" name="name" id="name" required />
               </div>
+              <button  type="submit" id="button">
+                Anunciar
+              </button>
             </div>
             <div className="photos__ad">
-              <label htmlFor="" id="main">
-                <input type="file" name="" id="main" />
+              <label className="thumbs main">
+                <input type="file" />
+                <AiOutlineCamera />
               </label>
               <div className="small">
-                <label htmlFor="" id="sec">
-                  <input type="file" name="" id="sec" />
+                <label className="thumbs sec">
+                  <input type="file" />
+                  <AiOutlineCamera />
                 </label>
-                <label htmlFor="" id="sec">
-                  <input type="file" name="" id="sec" />
+                <label className="thumbs sec">
+                  <input type="file" />
+                  <AiOutlineCamera />
                 </label>
-                <label htmlFor="" id="sec">
-                  <input type="file" name="" id="sec" />
+                <label className="thumbs sec">
+                  <input type="file" />
+                  <AiOutlineCamera />
                 </label>
-                <label htmlFor="" id="sec">
-                  <input type="file" name="" id="sec" />
+                <label className="thumbs sec">
+                  <input type="file" />
+                  <AiOutlineCamera />
                 </label>
               </div>
             </div>

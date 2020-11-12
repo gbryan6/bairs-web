@@ -1,18 +1,28 @@
+.newad__content{
+    width: 100vw;
+    height: 100vh;
+}
+
 .newad__registerarea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .form__content--ad {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center
+    justify-content: center;
 }
 
 .form__content--ad form {
     display: flex;
+    width: 50%;
+    justify-content: space-around;
 }
 
 .form__content--ad input {
@@ -55,6 +65,7 @@ select {
 .photos__ad {
     margin-top: 20px;
     width: 50%;
+    max-width: 212px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,23 +77,49 @@ select {
 
 .inputs__area {
     width: 400px;
-    margin: 0;
+   
 }
 
-#main {
+.inputs__area > #button{
+    margin-top: 30px;
+}
+
+.main {
     width: 208px;
     height: 200px;
     padding: 0;
+    display: flex;
 }
 
-#sec {
+.sec {
     width: 100px;
     height: 100px;
     padding: 0;
+    display: flex;
 }
 
 .small {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
+    column-gap: 5px;
+}
+
+
+
+.thumbs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.thumbs > input{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.thumbs > svg{
+    width: 25px;
+    height: 25px;
 }

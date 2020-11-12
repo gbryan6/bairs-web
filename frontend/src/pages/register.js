@@ -77,7 +77,7 @@ function Register() {
               <label htmlFor="cpf">CPF</label>
               <input type="number" id="cpf" name="cpf" required />
 
-              <button to="/" type="submit" id="prox">
+              <button to="/" type="submit" id="button">
                 Proximo
               </button>
             </div>

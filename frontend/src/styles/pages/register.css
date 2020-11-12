@@ -1,4 +1,4 @@
-#prox {
+#button {
     width: 400px;
     height: 41px;
     background-color: #5D6CFD;
@@ -61,6 +61,10 @@ label#thumbnail.has-thumbnail {
     text-align: center;
     margin-top: 5px;
     font-family: "Montserrat", sans-serif;
+}
+
+.form__photo{
+    margin-top: 23px;
 }
 
 .form__flex #birth {
