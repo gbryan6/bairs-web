@@ -1,15 +1,14 @@
-.newad__content{
+.newad__content {
     width: 100vw;
     height: 100vh;
 }
 
 .newad__registerarea {
-  height: 80vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form__content--ad {
@@ -25,7 +24,8 @@
     justify-content: space-around;
 }
 
-.form__content--ad input {
+.form__content--ad input,
+textarea {
     max-width: 400px;
     width: auto;
     height: 41px;
@@ -35,8 +35,14 @@
     border-radius: 5px;
 }
 
-.form__content--ad input:focus {
+.form__content--ad input,
+textarea:focus {
     outline: none;
+}
+
+.form__content--ad textarea {
+    padding: 0 7px;
+    resize: none;
 }
 
 .form__content--ad input,
@@ -77,10 +83,9 @@ select {
 
 .inputs__area {
     width: 400px;
-   
 }
 
-.inputs__area > #button{
+.inputs__area>#button {
     margin-top: 30px;
 }
 
@@ -104,22 +109,25 @@ select {
     column-gap: 5px;
 }
 
-
-
-.thumbs{
+.thumbs {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.thumbs > input{
+.thumbs>input {
     width: 100%;
     height: 100%;
     display: none;
 }
 
-.thumbs > svg{
+.thumbs>svg {
     width: 25px;
     height: 25px;
+}
+
+.has-thumbnail svg {
+    display: none;
 }

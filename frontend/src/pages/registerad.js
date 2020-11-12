@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useState, useMemo} from "react";
 import RegisterHead from "../components/registerHead.js";
 import { AiOutlineCamera } from "react-icons/ai";
+
 // import { Container } from './styles';
 import "../styles/pages/registerad.css";
 
 function RegisterAd() {
+  const [thumbnail, setThumbnail] = useState(null);
+  
+  const preview = useMemo (()=> thumbnail ? URL.createObjectURL(thumbnail) : null, [thumbnail])
+
+
+
   return (
     <div className="newad__content">
       <RegisterHead title="O que gostaria de anunciar ?" />
@@ -19,7 +26,7 @@ function RegisterAd() {
               </div>
               <div className="wrapper__ad">
                 <label htmlFor="name">Descrição</label>
-                <input type="text" name="name" id="name" required />
+                <textarea type="textarea" name="name" id="name" required />
               </div>
               <div className="wrapper__ad">
                 <label htmlFor="name">Preço</label>
@@ -43,22 +50,52 @@ function RegisterAd() {
                 <AiOutlineCamera />
               </label>
               <div className="small">
-                <label className="thumbs sec">
-                  <input type="file" />
+                <label className={thumbnail ? "thumbs sec has-thumbnail" : "thumbs sec"}
+                style={{
+                  backgroundImage: `url(${preview})`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat : "no-repeat",
+                }} id="photo2">
+                  <input type="file"
+                  onChange={(event) => setThumbnail(event.target.files[0])} />
                   <AiOutlineCamera />
                 </label>
-                <label className="thumbs sec">
-                  <input type="file" />
+                <label className={thumbnail ? "thumbs sec has-thumbnail" : "thumbs sec"}
+                style={{
+                  backgroundImage: `url(${preview})`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat : "no-repeat",
+                }} id="photo3">
+                  <input type="file"
+                  onChange={(event) => setThumbnail(event.target.files[0])} />
                   <AiOutlineCamera />
                 </label>
-                <label className="thumbs sec">
-                  <input type="file" />
+                <label className={thumbnail ? "thumbs sec has-thumbnail" : "thumbs sec"}
+                style={{
+                  backgroundImage: `url(${preview})`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat : "no-repeat",
+                }}
+                id="photo4">
+                  <input type="file"
+                  onChange={(event) => setThumbnail(event.target.files[0])} />
                   <AiOutlineCamera />
                 </label>
-                <label className="thumbs sec">
-                  <input type="file" />
+                <label className={thumbnail ? "thumbs sec has-thumbnail" : "thumbs sec"}
+                style={{
+                  backgroundImage: `url(${preview})`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat : "no-repeat",
+                }} id="photo5">
+                  <input type="file"
+                  onChange={(event) => setThumbnail(event.target.files[0])} />
                   <AiOutlineCamera />
                 </label>
+                
               </div>
             </div>
           </form>
