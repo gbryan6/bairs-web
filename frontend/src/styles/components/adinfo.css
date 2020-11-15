@@ -1,0 +1,59 @@
+
+
+.info__image{
+    background-color: white;
+    width: 400px;
+    height: 400px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    margin-right: 50px;
+}
+
+.ad__infos{
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-text);
+    display: flex;
+}
+
+.wrapper__title{
+    margin-bottom: 20px;
+}
+
+.ad__user{
+    display: flex;
+    align-self: inherit;
+    margin-top: 40px;
+}
+
+.ad__price{
+    margin-bottom: 20px;
+}
+
+.ad__description p{
+    margin-bottom: 40px;
+    max-width: 400px;
+    width: 400px;
+    height: 100px;
+    text-align: justify;
+}
+
+.ad__moreInfo{
+    max-width: 400px;
+}
+
+.user__image img{
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+
+.user__image{
+height: 48px;
+display: flex;
+align-items: center;
+margin-right: 10px;
+}
+
+.user__instituition {
+    font-size: 14px;
+}

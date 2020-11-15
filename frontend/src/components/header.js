@@ -11,7 +11,9 @@ function Header() {
   return (
     <div>
       <nav className="top-bar__content">
+        <Link to="/" className="wrapper__logo">
         <img src={Logo} alt="Logotipo Bairs" className="top-bar__logo" />
+        </Link>
         <div className="top-bar__search">
           <input
             type="text"
