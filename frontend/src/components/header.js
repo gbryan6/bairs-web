@@ -7,7 +7,7 @@ import Pefil from "../images/perfilP.jpg";
 import { Link } from "react-router-dom";
 
 function Header() {
-  let Logged = localStorage.getItem("userID");
+  let Logged = localStorage.getItem("userId");
   return (
     <div>
       <nav className="top-bar__content">

@@ -45,7 +45,7 @@ function RegisterAd() {
             </div>
             <div className="photos__ad">
               <label className={
-                    thumbnail[0] ? "thumbs main has-thumbnail" : "thumbs main"
+                    thumbnail[0] ? "thumbs main has-thumb" : "thumbs main"
                   }
                   style={{
                     backgroundImage: `url(${thumbnail[0] ? URL.createObjectURL(thumbnail[0]): ""})`,
@@ -62,7 +62,7 @@ function RegisterAd() {
               <div className="small">
                 <label
                   className={
-                    thumbnail[1] ? "thumbs sec has-thumbnail" : "thumbs sec"
+                    thumbnail[1] ? "thumbs sec has-thumb" : "thumbs sec"
                   }
                   style={{
                     backgroundImage: `url(${thumbnail[1] ? URL.createObjectURL(thumbnail[1]): ""})`,
@@ -81,7 +81,7 @@ function RegisterAd() {
                 </label>
                 <label
                   className={
-                    thumbnail[2] ? "thumbs sec has-thumbnail" : "thumbs sec"
+                    thumbnail[2] ? "thumbs sec has-thumb" : "thumbs sec"
                   }
                   style={{
                     backgroundImage: `url(${thumbnail[2] ? URL.createObjectURL(thumbnail[2]): ""})`,
@@ -99,7 +99,7 @@ function RegisterAd() {
                 </label>
                 <label
                   className={
-                    thumbnail[3] ? "thumbs sec has-thumbnail" : "thumbs sec"
+                    thumbnail[3] ? "thumbs sec has-thumb" : "thumbs sec"
                   }
                   style={{
                     backgroundImage: `url(${thumbnail[3] ? URL.createObjectURL(thumbnail[3]): ""})`,
@@ -117,7 +117,7 @@ function RegisterAd() {
                 </label>
                 <label
                   className={
-                    thumbnail[4] ? "thumbs sec has-thumbnail" : "thumbs sec"
+                    thumbnail[4] ? "thumbs sec has-thumb" : "thumbs sec"
                   }
                   style={{
                     backgroundImage: `url(${thumbnail[4] ? URL.createObjectURL(thumbnail[4]): ""})`,

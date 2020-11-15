@@ -7,6 +7,11 @@ import api from '../services/api';
 
 function Login() {
 
+    function setLocal(item, data){
+
+     return localStorage.setItem(item, data);
+    }
+
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(false);
@@ -22,11 +27,11 @@ function Login() {
         }
         
         try {
-          const response = await api.post('session/instituition', data);
-          localStorage.setItem('userId', response.data.id);
+          const response = await api.post('session/user', data);
+          setLocal("userId", response.data.id);
           history.push('/');
         } catch (error) {
-          return ; 
+          return alert("usuario ou senha invalidos") ; 
         }
     }
 

@@ -1,20 +1,47 @@
 import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import "../styles/pages/register.css";
 import RegisterHead from "../components/registerHead.js";
+import api from '../services/api';
 
 function Register() {
-  const [thumbnail, setThumbnail] = useState(null);
+  const [image, setImage] = useState(null);
   const [date, setDate] = useState("");
+  const [full_name, setFullName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [mail, setMail] = useState("");
+  const [genre, setGenre] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [phone, setPhone] = useState("");
 
   const preview = useMemo(() => {
-    return thumbnail ? URL.createObjectURL(thumbnail) : null;
-  }, [thumbnail]);
+    return image ? URL.createObjectURL(image) : null;
+  }, [image]);
 
-  function handleRegister(e) {
+  const history = useHistory();
+
+  async function handleRegister(e) {
     e.preventDefault();
-    console.log(date);
+
+    const profile_path = image.name;
+  
+    const dataRegister = {
+      profile_path,
+      date,
+      full_name,
+      username,
+      password,
+      mail,
+      genre,
+      cpf,
+      phone
+    }
+
+    
+
+    
   }
   return (
     <div className="register__all">
@@ -24,36 +51,40 @@ function Register() {
           <form className="form__area" onSubmit={handleRegister}>
             <div className="form__student">
               <label htmlFor="name">Nome completo</label>
-              <input type="text" name="name" id="name" required />
+              <input type="text" name="name" id="name" value={full_name} onChange={e => setFullName(e.target.value)} required />
 
               <div className="wrapper__form">
                 <label htmlFor="nickname">
                   Usuario
-                  <input type="text" name="nickname" id="nickname" required />
+                  <input type="text" id="nickname" value={username} onChange={e => setUsername(e.target.value)} required />
                 </label>
 
                 <label htmlFor="password">
                   Senha
                   <input
                     type="password"
-                    name="password"
                     id="password"
                     required
+                    value={password} onChange={e => setPassword(e.target.value)}
                   />
                 </label>
               </div>
 
               <label htmlFor="email">E-mail válido</label>
-              <input type="text" name="email" id="email" required />
+              <input type="text" id="email" value={mail} onChange={e => setMail(e.target.value)} required />
 
-              <label htmlFor="description">Breve descrição</label>
-              <input type="text" id="description" name="description" />
+              <label htmlFor="email">Telefone</label>
+              <input type="number" name="email" id="email" value={phone} onChange={e => setPhone(e.target.value)} required />
+
 
               <div className="form__flex">
                 <label htmlFor="genre">
                   Gênero
-                  <select id="genre" name="genre" className="genre">
-                    <option selected value="feminino">
+                  <select id="genre" name="genre" className="genre" value={genre} onChange={e => setGenre(e.target.value)}>
+                    <option value="0">
+                      selecione
+                    </option>
+                    <option value="feminino">
                       Feminino
                     </option>
                     <option value="masculino">Masculino</option>
@@ -75,9 +106,9 @@ function Register() {
               </div>
 
               <label htmlFor="cpf">CPF</label>
-              <input type="number" id="cpf" name="cpf" required />
+              <input type="number" id="cpf" name="cpf" value={cpf} onChange={e => setCpf(e.target.value)} required />
 
-              <button to="/" type="submit" id="button">
+              <button  type="submit" id="button">
                 Proximo
               </button>
             </div>
@@ -90,11 +121,11 @@ function Register() {
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                 }}
-                className={thumbnail ? "has-thumbnail" : ""}
+                className={image ? "has-thumbnail" : ""}
               >
                 <input
                   type="file"
-                  onChange={(event) => setThumbnail(event.target.files[0])}
+                  onChange={(event) => setImage(event.target.files[0])}
                   id="photo"
                 />
                 <FaUserCircle className="icon" />
