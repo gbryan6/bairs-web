@@ -194,3 +194,15 @@ button {
 .register:focus {
     background-color: orange
 }
+
+.login__back{
+    width: 36px;
+    height: 36px;
+    margin-bottom: 60px;
+}
+
+.login__back svg{
+    width: 30px;
+    height: 30px;
+    color: var(--color-text);
+}

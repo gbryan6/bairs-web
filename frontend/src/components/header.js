@@ -1,9 +1,9 @@
 import React from "react";
 import { MdSearch } from "react-icons/md";
-import { FiBell } from "react-icons/fi";
+import { AiOutlinePoweroff } from "react-icons/ai";
 import "../styles/components/header.css";
 import Logo from "../images/bairsLogoP.svg";
-import Pefil from "../images/perfilP.jpg";
+import Perfil from "../images/perfilP.jpg";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -29,18 +29,20 @@ function Header() {
         {Logged ? (
           <>
             <div className="top-bar__login">
-              <img src={Pefil} alt="" />
-              <a href="#">Nome</a>
+            
+              <img src={Perfil} alt="" />
+               <Link to="/dashboard/temp">Nome</Link>
+              
             </div>
             <div className="icon-button">
-              <FiBell className="notification" />
+              <AiOutlinePoweroff className="notification" />
             </div>
           </>
         ) : (
           ""
         )}
 
-        <Link to={Logged ? "/newad" : "/register"} className="top-bar__button">
+        <Link to={Logged ? "/newad" : "/login"} className="top-bar__button">
           Quero anunciar
         </Link>
       </nav>

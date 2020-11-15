@@ -5,6 +5,8 @@ import Register from './pages/register.js';
 import Login from './pages/login.js';
 import RegisterAd from './pages/registerad.js';
 import Ad from './pages/ad.js';
+import Dashboard from './pages/dashboard.js';
+import Page404 from './pages/page404.js';
 
 export default function Routes() {
   return (
@@ -20,6 +22,9 @@ export default function Routes() {
 
         <Route path="/ad/temp" component={Ad} />
 
+        <Route path="/dashboard/temp" component={Dashboard} />
+
+        <Route component={Page404} />
       </Switch>
     </BrowserRouter>
   );

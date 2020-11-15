@@ -26,7 +26,7 @@ function Register() {
     e.preventDefault();
 
     const profile_path = image.name;
-  
+
     const dataRegister = {
       profile_path,
       date,
@@ -39,13 +39,13 @@ function Register() {
       phone
     }
 
-    
 
-    
+
+
   }
   return (
     <div className="register__all">
-      <RegisterHead title="Crie sua conta" desc="Dados Pessoais" />
+      <RegisterHead title="Crie sua conta"  />
       <div className="form">
         <div className="form__content">
           <form className="form__area" onSubmit={handleRegister}>
@@ -108,10 +108,72 @@ function Register() {
               <label htmlFor="cpf">CPF</label>
               <input type="number" id="cpf" name="cpf" value={cpf} onChange={e => setCpf(e.target.value)} required />
 
-              <button  type="submit" id="button">
-                Proximo
-              </button>
             </div>
+
+
+
+            <div className="form__student">
+              <label htmlFor="name">Nome completo</label>
+              <input type="text" name="name" id="name" value={full_name} onChange={e => setFullName(e.target.value)} required />
+
+              <div className="wrapper__form">
+                <label htmlFor="nickname">
+                  Usuario
+                  <input type="text" id="nickname" value={username} onChange={e => setUsername(e.target.value)} required />
+                </label>
+
+                <label htmlFor="password">
+                  Senha
+                  <input
+                    type="password"
+                    id="password"
+                    required
+                    value={password} onChange={e => setPassword(e.target.value)}
+                  />
+                </label>
+              </div>
+
+              <label htmlFor="email">E-mail válido</label>
+              <input type="text" id="email" value={mail} onChange={e => setMail(e.target.value)} required />
+
+              <label htmlFor="email">Telefone</label>
+              <input type="number" name="email" id="email" value={phone} onChange={e => setPhone(e.target.value)} required />
+
+
+              <div className="form__flex">
+                <label htmlFor="genre">
+                  Gênero
+                  <select id="genre" name="genre" className="genre" value={genre} onChange={e => setGenre(e.target.value)}>
+                    <option value="0">
+                      selecione
+                    </option>
+                    <option value="feminino">
+                      Feminino
+                    </option>
+                    <option value="masculino">Masculino</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                </label>
+
+                <label htmlFor="birth">
+                  Data de nascimento
+                  <input
+                    type="date"
+                    id="birth"
+                    name="birth"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    required
+                  />
+                </label>
+              </div>
+
+              <label htmlFor="cpf">CPF</label>
+              <input type="number" id="cpf" name="cpf" value={cpf} onChange={e => setCpf(e.target.value)} required />
+
+              
+            </div>
+
             <div className="form__photo">
               <label
                 id="thumbnail"
@@ -131,6 +193,9 @@ function Register() {
                 <FaUserCircle className="icon" />
               </label>
               <p>Inserir foto</p>
+              <button type="submit" id="button">
+                Registrar 
+              </button>
             </div>
           </form>
         </div>

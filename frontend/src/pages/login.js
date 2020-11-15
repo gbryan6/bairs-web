@@ -1,48 +1,54 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../styles/pages/login.css";
 import Vector from "../images/svgLogin.svg";
 import { Link, useHistory } from "react-router-dom";
+import { FiArrowLeft } from 'react-icons/fi';
 import api from '../services/api';
 // import { Container } from './styles';
 
 function Login() {
 
-    function setLocal(item, data){
+  function setLocal(item, data) {
 
-     return localStorage.setItem(item, data);
+    return localStorage.setItem(item, data);
+  }
+
+  const [mail, setMail] = useState('');
+  const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(false);
+
+  const history = useHistory();
+ 
+  async function handleLogin(e) {
+    e.preventDefault();
+
+    const data = {
+      mail,
+      password,
     }
 
-    const [mail, setMail] = useState('');
-    const [password, setPassword] = useState('');
-    const [remember, setRemember] = useState(false);
-
-    const history = useHistory();
-    
-    async function handleLogin(e){
-        e.preventDefault();
-
-        const data = {
-            mail,
-            password,
-        }
-        
-        try {
-          const response = await api.post('session/user', data);
-          setLocal("userId", response.data.id);
-          history.push('/');
-        } catch (error) {
-          return alert("usuario ou senha invalidos") ; 
-        }
+    try {
+      const response = await api.post('session/user', data);
+      setLocal("userId", response.data.id);
+      history.push('/');
+    } catch (error) {
+      return ;
     }
+  }
+  
+  
 
   return (
     <div id="login__content">
       <div className="login__content--left">
         <div className="content__user">
           <div className="login__message">
+            <Link onClick={history.goBack} className="login__back">
+              <FiArrowLeft />
+            </Link>
             <h1>BAIRS</h1>
             <h2>Servindo a você para encontrar a sua necessidade.</h2>
-            <p>Bem vindo, por favor faça o login em sua conta.</p>
+            <p>Logue na sua conta para negociar</p>
           </div>
           <div className="content__login">
             <form className="user__login" onSubmit={handleLogin}>

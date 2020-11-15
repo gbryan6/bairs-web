@@ -1,0 +1,31 @@
+.dashboard__all{
+    background-color: var(--color-secondary);
+    background-image: url('../../images/Bakground.svg');
+    background-size: cover;
+    background-attachment: fixed;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+.my__ads{
+    width: 80%;
+    max-width: 1200px;
+    margin: 60px auto;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

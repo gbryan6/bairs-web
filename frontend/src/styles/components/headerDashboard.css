@@ -1,0 +1,38 @@
+.dash__user{
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+}
+
+.headerdash__all{
+    margin-top: 50px;
+}
+
+.dash__img img{
+    width: 135px;
+    height: 135px;
+
+    border-radius: 50%;
+}
+
+.dash__img{
+    width: 135px;
+    height: 135px;
+    
+    border-radius: 50%;
+}
+
+.dash__info{
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.dash__info h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--color-text);
+}

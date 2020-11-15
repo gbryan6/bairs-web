@@ -33,11 +33,22 @@ function RegisterAd() {
               </div>
               <div className="wrapper__ad">
                 <label htmlFor="name">Categoria</label>
-                <input type="text" name="name" id="name" required />
+                <select name="" id="">
+                  <option value="0">Selecione</option>
+                  <option value="Acadêmicos">Acadêmicos</option>
+                  <option value="Cosméticos">Cosméticos</option>
+                  <option value="Informática">Informática</option>
+                  <option value="Comida e Bebidas">Comida e Bebidas</option>
+                  <option value="Outros">Outros</option>
+                </select>
               </div>
-              <div className="wrapper__ad">
+
+              
+
                 <label htmlFor="name">Tipo</label>
-                <input type="text" name="name" id="name" required />
+                <div className="wrapper__adcheck">
+                <input type="checkbox" name="name" id="produto" required />Produto
+                <input type="checkbox" name="name" id="servico" required />Serviço  
               </div>
               <button type="submit" id="button">
                 Anunciar

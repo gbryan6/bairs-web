@@ -68,6 +68,22 @@ select {
     flex-direction: column;
 }
 
+.wrapper__adcheck{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 200px;
+    
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
 .photos__ad {
     margin-top: 20px;
     width: 50%;
