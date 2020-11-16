@@ -11,8 +11,8 @@
 
 .congratulations{
     display: flex;
-    align-content: center;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .congratulations h1{
@@ -27,9 +27,30 @@
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
+    display: flex;
 }
 
 .congratulations img{
     width: 213px;
     height: 226px;
+}
+
+.inicio a{
+    display: flex;
+    align-content: center;
+    font-family: Montserrat;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.inicio a:hover{
+    display: flex;
+    align-content: center;
+    font-family: Montserrat;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 24px;
 }
