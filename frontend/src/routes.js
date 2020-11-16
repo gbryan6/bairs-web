@@ -7,6 +7,7 @@ import RegisterAd from './pages/registerad.js';
 import Ad from './pages/ad.js';
 import Dashboard from './pages/dashboard.js';
 import Page404 from './pages/page404.js';
+import Congratulations from './pages/congratulations.js';
 
 export default function Routes() {
   return (
@@ -23,6 +24,8 @@ export default function Routes() {
         <Route path="/ad/temp" component={Ad} />
 
         <Route path="/dashboard/temp" component={Dashboard} />
+
+        <Route path="/congratulations" component={Congratulations} />
 
         <Route component={Page404} />
       </Switch>
