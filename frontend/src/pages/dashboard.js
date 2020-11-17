@@ -7,6 +7,7 @@ import Feed from "../components/feed";
 // import { Container } from './styles';
 
 function Dashboard() {
+
   return (
     <div className="dashboard__all">
       <nav>

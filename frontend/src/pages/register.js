@@ -6,23 +6,55 @@ import RegisterHead from "../components/registerHead.js";
 import api from "../services/api";
 
 function Register() {
-  const periods = ["1","2","3","4","5","6","7","8","9","10","11","12"];
+  const periods = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
   const [instituitions, setInstituitions] = useState([]);
   const [instituition, setInstituition] = useState([]);
-  const [classroons, setClassroons] = useState([]);
+  const [classrooms, setClassrooms] = useState([]);
 
   //register data
-  const [image, setImage] = useState(null);
-  const [date, setDate] = useState("");
+  const [profile_path, setProfilePath] = useState(null);
+  const [birth, setBirth] = useState("");
   const [full_name, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [mail, setMail] = useState("");
   const [genre, setGenre] = useState("");
+  const [period, setPeriod] = useState("");
   const [cpf, setCpf] = useState("");
   const [phone, setPhone] = useState("");
   const [study_shift, setStudyShift] = useState("");
   const [instituition_id, setInstituition_id] = useState("");
+  const [classroom_id, setClassroom_id] = useState("");
+
+  async function handleRegister(e){
+      e.preventDefault();
+      const data = new FormData();
+
+      data.append("full_name", full_name);
+      data.append("username", username);
+      data.append("birth", birth);
+      data.append("phone", phone);
+      data.append("mail", mail);
+      data.append("genre", genre);
+      data.append("cpf", cpf);
+      data.append("period", period);
+      data.append("study_shift", study_shift);
+      data.append("password", password);
+      data.append("profile_path", profile_path);
+      data.append("instituition_id", instituition_id);
+      data.append("classroom_id", classroom_id);
+
+    try {
+      await api.post('/user/register', data)
+      history.push('/congratulations');
+    } catch (error) {
+      alert(error);
+    }
+     
+      
+      
+    
+  }
 
   useEffect(() => {
     async function loadInstituitions() {
@@ -32,6 +64,20 @@ function Register() {
     }
     loadInstituitions();
   }, []);
+
+  useEffect(() => {
+    async function loadClassrooms() {
+      await api.get("/classrooms", {
+        headers: {
+          Authorization: instituition_id
+        }
+      }).then((response) => {
+        setClassrooms(response.data);
+      });
+    }
+    loadClassrooms();
+  }, [instituition_id]);
+
 
   useEffect(() => {
     async function loadInstituition() {
@@ -44,8 +90,8 @@ function Register() {
   }, [instituition_id]);
 
   const preview = useMemo(() => {
-    return image ? URL.createObjectURL(image) : null;
-  }, [image]);
+    return profile_path ? URL.createObjectURL(profile_path) : null;
+  }, [profile_path]);
 
   const history = useHistory();
 
@@ -54,7 +100,7 @@ function Register() {
       <RegisterHead title="Crie sua conta" />
       <div className="form">
         <div className="form__content">
-          <form className="form__area">
+          <form className="form__area" onSubmit={handleRegister}>
             <div className="form__student">
               <label htmlFor="name">Nome completo</label>
               <input
@@ -101,7 +147,8 @@ function Register() {
 
               <label htmlFor="email">Telefone</label>
               <input
-                type="number"
+                type="text"
+                maxLength="11"
                 name="email"
                 id="email"
                 value={phone}
@@ -132,8 +179,8 @@ function Register() {
                     type="date"
                     id="birth"
                     name="birth"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
+                    value={birth}
+                    onChange={(e) => setBirth(e.target.value)}
                     required
                   />
                 </label>
@@ -141,7 +188,8 @@ function Register() {
 
               <label htmlFor="cpf">CPF</label>
               <input
-                type="number"
+                type="text"
+                maxLength="11"
                 id="cpf"
                 name="cpf"
                 value={cpf}
@@ -205,19 +253,22 @@ function Register() {
                         />
                       </label>
                     </div>
+                    <label htmlFor="classroom">Curso</label>
+                    <select
+                      id="select"
+                      value={classroom_id}
+                      onChange={(e) => setClassroom_id(e.target.value)}
+                    >
+                    <option value="0">Selecione</option>
+                    {classrooms.map((classroom) => (
+                        <option value={classroom.id}>{classroom.name}</option>
+                    ))}
+                    </select>
                   </>
                 )
               )}
 
-              <label htmlFor="email">Curso</label>
-              <input
-                type="number"
-                name="email"
-                id="email"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
-              />
+
 
               <div className="form__flex">
                 <label htmlFor="study_shift">
@@ -236,10 +287,10 @@ function Register() {
 
                 <label htmlFor="period">
                   Periodo
-                  <select type="text" id="select" name="period">
-                  <option value="-1">Selecione o período</option>
-                    {periods.map((period) =>(
-                        <option value={`${period}º periodo`}>{`${period}º período`}</option>
+                  <select type="text" id="select" name="period" value={period} onChange={e => setPeriod(e.target.value)}>
+                    <option value="-1">Selecione o período</option>
+                    {periods.map((period) => (
+                      <option value={`${period}º periodo`}>{`${period}º período`}</option>
                     ))
                     }
                   </select>
@@ -256,11 +307,11 @@ function Register() {
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                 }}
-                className={image ? "has-thumbnail" : ""}
+                className={profile_path ? "has-thumbnail" : ""}
               >
                 <input
                   type="file"
-                  onChange={(event) => setImage(event.target.files[0])}
+                  onChange={(event) => setProfilePath(event.target.files[0])}
                   id="photo"
                 />
                 <FaUserCircle className="icon" />

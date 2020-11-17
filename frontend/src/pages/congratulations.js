@@ -13,7 +13,7 @@ function congratulations() {
         </div>
         <p>Agora você faz parte do BAIRS</p>
         <div className="inicio">
-          <Link to="/">Ir para o início</Link>
+          <Link to="/login">Fazer o login</Link>
         </div>
       </div>
     </div>
