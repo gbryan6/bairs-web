@@ -8,6 +8,7 @@ import Ad from './pages/ad.js';
 import Dashboard from './pages/dashboard.js';
 import Page404 from './pages/page404.js';
 import Congratulations from './pages/congratulations.js';
+import AlterInfo from './pages/alterinfo';
 
 export default function Routes() {
   return (
@@ -26,6 +27,8 @@ export default function Routes() {
         <Route path="/dashboard/temp" component={Dashboard} />
 
         <Route path="/congratulations" component={Congratulations} />
+
+        <Route path="/alterinfo" component={AlterInfo} />
 
         <Route component={Page404} />
       </Switch>

@@ -2,41 +2,37 @@ import React, { useState } from "react";
 import "../styles/pages/login.css";
 import Vector from "../images/svgLogin.svg";
 import { Link, useHistory } from "react-router-dom";
-import { FiArrowLeft } from 'react-icons/fi';
-import api from '../services/api';
+import { FiArrowLeft } from "react-icons/fi";
+import api from "../services/api";
 // import { Container } from './styles';
 
 function Login() {
-
   function setLocal(item, data) {
-
     return localStorage.setItem(item, data);
   }
 
-  const [mail, setMail] = useState('');
-  const [password, setPassword] = useState('');
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
 
   const history = useHistory();
- 
+
   async function handleLogin(e) {
     e.preventDefault();
 
     const data = {
       mail,
       password,
-    }
+    };
 
     try {
-      const response = await api.post('session/user', data);
+      const response = await api.post("session/user", data);
       setLocal("userId", response.data.id);
-      history.push('/');
+      history.push("/");
     } catch (error) {
-      return ;
+      return;
     }
   }
-  
-  
 
   return (
     <div id="login__content">
@@ -59,7 +55,7 @@ function Login() {
                     name="user"
                     id="user"
                     value={mail}
-                    onChange={e => setMail(e.target.value)}
+                    onChange={(e) => setMail(e.target.value)}
                     required
                   />
                   <label htmlFor="user">Usuário</label>
@@ -72,7 +68,7 @@ function Login() {
                     name="password"
                     id="password"
                     value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                   <label htmlFor="password">Senha  </label>
@@ -88,7 +84,7 @@ function Login() {
                     name="remember"
                     id="remember"
                     value={remember}
-                    onChange={e => setRemember(e.target.checked)}
+                    onChange={(e) => setRemember(e.target.checked)}
                   />
                   Lembre de mim
                 </label>
@@ -99,7 +95,9 @@ function Login() {
                   <button className="login" type="submit">
                     Entrar
                   </button>
-                  <Link to="/register" className="register">Registrar</Link>
+                  <Link to="/register" className="register">
+                    Registrar
+                  </Link>
                 </div>
               </div>
             </form>

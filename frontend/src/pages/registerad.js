@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import RegisterHead from "../components/registerHead.js";
 import { AiOutlineCamera } from "react-icons/ai";
 
@@ -8,8 +8,10 @@ import "../styles/pages/registerad.css";
 function RegisterAd() {
   const [thumbnail, setThumbnail] = useState([]);
 
-  const data = thumbnail ? thumbnail.map(thumb => URL.createObjectURL(thumb)) : null;
-    console.log(data);
+  const data = thumbnail
+    ? thumbnail.map((thumb) => URL.createObjectURL(thumb))
+    : null;
+  console.log(data);
 
   return (
     <div className="newad__content">
@@ -43,30 +45,40 @@ function RegisterAd() {
                 </select>
               </div>
 
-              
-
-                <label htmlFor="name">Tipo</label>
-                <div className="wrapper__adcheck">
-                <input type="checkbox" name="name" id="produto" required />Produto
-                <input type="checkbox" name="name" id="servico" required />Serviço  
+              <label htmlFor="name">Tipo</label>
+              <div className="wrapper__adcheck">
+                <input type="checkbox" name="name" id="produto" required />
+                Produto
+                <input type="checkbox" name="name" id="servico" required />
+                Serviço
               </div>
               <button type="submit" id="button">
                 Anunciar
               </button>
             </div>
             <div className="photos__ad">
-              <label className={
-                    thumbnail[0] ? "thumbs main has-thumb" : "thumbs main"
+              <label
+                className={
+                  thumbnail[0] ? "thumbs main has-thumb" : "thumbs main"
+                }
+                style={{
+                  backgroundImage: `url(${
+                    thumbnail[0] ? URL.createObjectURL(thumbnail[0]) : ""
+                  })`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  overflow: "hidden",
+                }}
+              >
+                <input
+                  type="file"
+                  onChange={(event) =>
+                    setThumbnail((thumbnail) => [
+                      ...thumbnail,
+                      event.target.files[0],
+                    ])
                   }
-                  style={{
-                    backgroundImage: `url(${thumbnail[0] ? URL.createObjectURL(thumbnail[0]): ""})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    overflow: "hidden",
-                  }}>
-                <input type="file" 
-                onChange={(event) => setThumbnail( thumbnail => [...thumbnail, event.target.files[0]])}
                 />
                 <AiOutlineCamera />
               </label>
@@ -76,7 +88,9 @@ function RegisterAd() {
                     thumbnail[1] ? "thumbs sec has-thumb" : "thumbs sec"
                   }
                   style={{
-                    backgroundImage: `url(${thumbnail[1] ? URL.createObjectURL(thumbnail[1]): ""})`,
+                    backgroundImage: `url(${
+                      thumbnail[1] ? URL.createObjectURL(thumbnail[1]) : ""
+                    })`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -86,7 +100,12 @@ function RegisterAd() {
                   <input
                     type="file"
                     multiple
-                    onChange={(event) => setThumbnail( thumbnail => [...thumbnail, event.target.files[0]])}
+                    onChange={(event) =>
+                      setThumbnail((thumbnail) => [
+                        ...thumbnail,
+                        event.target.files[0],
+                      ])
+                    }
                   />
                   <AiOutlineCamera />
                 </label>
@@ -95,7 +114,9 @@ function RegisterAd() {
                     thumbnail[2] ? "thumbs sec has-thumb" : "thumbs sec"
                   }
                   style={{
-                    backgroundImage: `url(${thumbnail[2] ? URL.createObjectURL(thumbnail[2]): ""})`,
+                    backgroundImage: `url(${
+                      thumbnail[2] ? URL.createObjectURL(thumbnail[2]) : ""
+                    })`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -104,7 +125,12 @@ function RegisterAd() {
                 >
                   <input
                     type="file"
-                    onChange={(event) => setThumbnail(thumbnail => [...thumbnail, event.target.files[0]])}
+                    onChange={(event) =>
+                      setThumbnail((thumbnail) => [
+                        ...thumbnail,
+                        event.target.files[0],
+                      ])
+                    }
                   />
                   <AiOutlineCamera />
                 </label>
@@ -113,7 +139,9 @@ function RegisterAd() {
                     thumbnail[3] ? "thumbs sec has-thumb" : "thumbs sec"
                   }
                   style={{
-                    backgroundImage: `url(${thumbnail[3] ? URL.createObjectURL(thumbnail[3]): ""})`,
+                    backgroundImage: `url(${
+                      thumbnail[3] ? URL.createObjectURL(thumbnail[3]) : ""
+                    })`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -122,7 +150,12 @@ function RegisterAd() {
                 >
                   <input
                     type="file"
-                    onChange={(event) => setThumbnail(thumbnail => [...thumbnail, event.target.files[0]])}
+                    onChange={(event) =>
+                      setThumbnail((thumbnail) => [
+                        ...thumbnail,
+                        event.target.files[0],
+                      ])
+                    }
                   />
                   <AiOutlineCamera />
                 </label>
@@ -131,7 +164,9 @@ function RegisterAd() {
                     thumbnail[4] ? "thumbs sec has-thumb" : "thumbs sec"
                   }
                   style={{
-                    backgroundImage: `url(${thumbnail[4] ? URL.createObjectURL(thumbnail[4]): ""})`,
+                    backgroundImage: `url(${
+                      thumbnail[4] ? URL.createObjectURL(thumbnail[4]) : ""
+                    })`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -140,7 +175,12 @@ function RegisterAd() {
                 >
                   <input
                     type="file"
-                    onChange={(event) => setThumbnail(thumbnail => [...thumbnail, event.target.files[0]])}
+                    onChange={(event) =>
+                      setThumbnail((thumbnail) => [
+                        ...thumbnail,
+                        event.target.files[0],
+                      ])
+                    }
                   />
                   <AiOutlineCamera />
                 </label>

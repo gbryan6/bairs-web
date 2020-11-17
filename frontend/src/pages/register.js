@@ -3,12 +3,13 @@ import { useHistory } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import "../styles/pages/register.css";
 import RegisterHead from "../components/registerHead.js";
-import api from '../services/api';
+import api from "../services/api";
 
 function Register() {
-  const [instituitions, setInstituitions] = useState([])
-  const [instituition, setInstituition] = useState([])
-  const [classroons, setClassroons] = useState([])
+  const periods = ["1","2","3","4","5","6","7","8","9","10","11","12"];
+  const [instituitions, setInstituitions] = useState([]);
+  const [instituition, setInstituition] = useState([]);
+  const [classroons, setClassroons] = useState([]);
 
   //register data
   const [image, setImage] = useState(null);
@@ -23,25 +24,23 @@ function Register() {
   const [study_shift, setStudyShift] = useState("");
   const [instituition_id, setInstituition_id] = useState("");
 
-
   useEffect(() => {
     async function loadInstituitions() {
-      await api.get("/instituitions").then(response => {
-        setInstituitions(response.data)
-      })
+      await api.get("/instituitions").then((response) => {
+        setInstituitions(response.data);
+      });
     }
-    loadInstituitions()
-
+    loadInstituitions();
   }, []);
 
   useEffect(() => {
     async function loadInstituition() {
-      await api.get(`/instituitions/${instituition_id}`).then(response => {
-        setInstituition(response.data)
-      })
+      await api.get(`/instituitions/${instituition_id}`).then((response) => {
+        setInstituition(response.data);
+      });
     }
 
-    loadInstituition()
+    loadInstituition();
   }, [instituition_id]);
 
   const preview = useMemo(() => {
@@ -55,15 +54,28 @@ function Register() {
       <RegisterHead title="Crie sua conta" />
       <div className="form">
         <div className="form__content">
-          <form className="form__area"  >
+          <form className="form__area">
             <div className="form__student">
               <label htmlFor="name">Nome completo</label>
-              <input type="text" name="name" id="name" value={full_name} onChange={e => setFullName(e.target.value)} required />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={full_name}
+                onChange={(e) => setFullName(e.target.value)}
+                required
+              />
 
               <div className="wrapper__form">
                 <label htmlFor="nickname">
                   Usuario
-                  <input type="text" id="nickname" value={username} onChange={e => setUsername(e.target.value)} required />
+                  <input
+                    type="text"
+                    id="nickname"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
                 </label>
 
                 <label htmlFor="password">
@@ -72,28 +84,43 @@ function Register() {
                     type="password"
                     id="password"
                     required
-                    value={password} onChange={e => setPassword(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </label>
               </div>
 
               <label htmlFor="email">E-mail válido</label>
-              <input type="text" id="email" value={mail} onChange={e => setMail(e.target.value)} required />
+              <input
+                type="text"
+                id="email"
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
+                required
+              />
 
               <label htmlFor="email">Telefone</label>
-              <input type="number" name="email" id="email" value={phone} onChange={e => setPhone(e.target.value)} required />
-
+              <input
+                type="number"
+                name="email"
+                id="email"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
 
               <div className="form__flex">
                 <label htmlFor="genre">
                   Gênero
-                  <select id="genre" name="genre" className="genre" value={genre} onChange={e => setGenre(e.target.value)}>
-                    <option value="0">
-                      selecione
-                    </option>
-                    <option value="feminino">
-                      Feminino
-                    </option>
+                  <select
+                    id="select"
+                    name="genre"
+                    className="genre"
+                    value={genre}
+                    onChange={(e) => setGenre(e.target.value)}
+                  >
+                    <option value="0">Selecione</option>
+                    <option value="feminino">Feminino</option>
                     <option value="masculino">Masculino</option>
                     <option value="outro">Outro</option>
                   </select>
@@ -113,15 +140,22 @@ function Register() {
               </div>
 
               <label htmlFor="cpf">CPF</label>
-              <input type="number" id="cpf" name="cpf" value={cpf} onChange={e => setCpf(e.target.value)} required />
-
+              <input
+                type="number"
+                id="cpf"
+                name="cpf"
+                value={cpf}
+                onChange={(e) => setCpf(e.target.value)}
+                required
+              />
             </div>
-
-
 
             <div className="form__student">
               <label htmlFor="University">Nome da Universidade</label>
-              <select value={instituition_id} onChange={(e) => setInstituition_id(e.target.value)}>
+              <select
+                value={instituition_id}
+                onChange={(e) => setInstituition_id(e.target.value)}
+              >
                 <option value="-1">Selecione a Universidade</option>
                 {instituitions.map((instituition) => (
                   <option key={instituition.id} value={instituition.id}>
@@ -129,61 +163,86 @@ function Register() {
                   </option>
                 ))}
               </select>
-              {instituition.map(instituition => (instituition_id === "" || instituition_id === "-1" ? null :
-                <>
-                  <label key={instituition.id} htmlFor="address">Endereço</label>
-                  <input type="text" id="address" disabled value={`${instituition.address}, ${instituition.number} - ${instituition.neighborhood}`} />
-
-                  <label htmlFor="city">Cidade</label>
-                  <input type="text" id="city" disabled value={instituition.city} />
-
-                  <div className="wrapper__form">
-                    <label htmlFor="cep">
-                      CEP
-                  <input type="text" id="cep" disabled value={instituition.CEP} />
+              {instituition.map((instituition) =>
+                instituition_id === "" || instituition_id === "-1" ? null : (
+                  <>
+                    <label key={instituition.id} htmlFor="address">
+                      Endereço
                     </label>
+                    <input
+                      type="text"
+                      id="address"
+                      disabled
+                      value={`${instituition.address}, ${instituition.number} - ${instituition.neighborhood}`}
+                    />
 
-                    <label htmlFor="uf">
-                      UF
-                  <input
+                    <label htmlFor="city">Cidade</label>
+                    <input
+                      type="text"
+                      id="city"
+                      disabled
+                      value={instituition.city}
+                    />
 
-                        type="text"
-                        id="UF"
-                        disabled
-                        value={instituition.uf}
-                      />
-                    </label>
-                  </div>
-                </>))}
+                    <div className="wrapper__form">
+                      <label htmlFor="cep">
+                        CEP
+                        <input
+                          type="text"
+                          id="cep"
+                          disabled
+                          value={instituition.CEP}
+                        />
+                      </label>
 
+                      <label htmlFor="uf">
+                        UF
+                        <input
+                          type="text"
+                          id="UF"
+                          disabled
+                          value={instituition.uf}
+                        />
+                      </label>
+                    </div>
+                  </>
+                )
+              )}
 
               <label htmlFor="email">Curso</label>
-              <input type="number" name="email" id="email" value={phone} onChange={e => setPhone(e.target.value)} required />
-
+              <input
+                type="number"
+                name="email"
+                id="email"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
 
               <div className="form__flex">
                 <label htmlFor="study_shift">
                   turno
-                  <select id="genre" value={study_shift} onChange={e => setStudyShift(e.target.value)}>
-                    <option value="0">
-                      selecione
-                    </option>
-                    <option value="manha">
-                      Manhã
-                    </option>
+                  <select
+                    id="select"
+                    value={study_shift}
+                    onChange={(e) => setStudyShift(e.target.value)}
+                  >
+                    <option value="0">Selecione</option>
+                    <option value="manha">Manhã</option>
                     <option value="tarde">Tarde</option>
                     <option value="noite">Noite</option>
                   </select>
                 </label>
 
-                <label htmlFor="birth">
+                <label htmlFor="period">
                   Periodo
-                  <input
-                    type="text"
-                    id="period"
-                    name="period"
-                    required
-                  />
+                  <select type="text" id="select" name="period">
+                  <option value="-1">Selecione o período</option>
+                    {periods.map((period) =>(
+                        <option value={`${period}º periodo`}>{`${period}º período`}</option>
+                    ))
+                    }
+                  </select>
                 </label>
               </div>
             </div>

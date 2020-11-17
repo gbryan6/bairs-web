@@ -1,6 +1,6 @@
 import React from "react";
 // eslint-disable-next-line
-import {useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "../styles/pages/home.css";
 
 import Header from "../components/header";
@@ -8,8 +8,7 @@ import Feed from "../components/feed";
 import Banner from "../components/banner";
 
 function Home() {
-
-const history = useHistory()
+  const history = useHistory();
 
   return (
     <div className="all__content">

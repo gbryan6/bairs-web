@@ -12,7 +12,7 @@ function Header() {
     <div>
       <nav className="top-bar__content">
         <Link to="/" className="wrapper__logo">
-        <img src={Logo} alt="Logotipo Bairs" className="top-bar__logo" />
+          <img src={Logo} alt="Logotipo Bairs" className="top-bar__logo" />
         </Link>
         <div className="top-bar__search">
           <input
@@ -29,10 +29,8 @@ function Header() {
         {Logged ? (
           <>
             <div className="top-bar__login">
-            
               <img src={Perfil} alt="" />
-               <Link to="/dashboard/temp">Nome</Link>
-              
+              <Link to="/dashboard/temp">Nome</Link>
             </div>
             <div className="icon-button">
               <AiOutlinePoweroff className="notification" />
