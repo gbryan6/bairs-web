@@ -1,20 +1,48 @@
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import Perfil from "../images/perfilP.jpg";
 import "../styles/components/headerDashboard.css";
 import { Link } from "react-router-dom";
-
+import api from "../services/api";
 // import { Container } from './styles';
 
 function HeaderDashboard() {
+  const Logged = localStorage.getItem("userId")
+  const [user, setUser] = useState([])
+  const [instituition, setInstituition] = useState("");
+
+  useEffect(() => {
+    async function loaddata() {
+      await api.get(`/user/${Logged}`).then(response => {
+        setUser(response.data)
+      })
+    }
+    loaddata()
+  }, [Logged])
+
+  useEffect(() => {
+    async function loadInstituition() {
+       user.map(user => {
+       api.get(`/instituitions/${user.instituition_id}`).then((response) => {
+        setInstituition(response.data);
+      });
+    })
+    }
+
+    loadInstituition();
+  }, []);
+
+
   return (
     <div className="headerdash__all">
+      { user.map((user) => (
+      <>
       <div className="dash__user">
         <div className="dash__img">
-          <img src={Perfil} alt="Foto de perfi" />
+          <img src={`http://localhost:3333/files/profile/picture/${user.profile_path}`} alt="Foto de perfi" />
         </div>
         <div className="dash__info">
-          <h1>Gustavo Miguel</h1>
-          <p>Centro Universitário Newton Paiva</p>
+          <h1>{user.full_name}</h1>
+          <p>{`${instituition.name} - ${instituition.campus}`}</p>
           <Link
             to="/alterinfo"
             type="submit"
@@ -30,6 +58,9 @@ function HeaderDashboard() {
           </Link>
         </div>
       </div>
+      </>
+      ))
+      }    
     </div>
   );
 }
