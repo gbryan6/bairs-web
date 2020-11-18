@@ -1,69 +1,114 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RegisterHead from "../components/registerHead.js";
 import { AiOutlineCamera } from "react-icons/ai";
+import api from "../services/api";
 
 // import { Container } from './styles';
 import "../styles/pages/registerad.css";
 
 function RegisterAd() {
-  const [thumbnail, setThumbnail] = useState([]);
+  const [categorys, setCategorys] = useState([]);
 
-  const data = thumbnail
-    ? thumbnail.map((thumb) => URL.createObjectURL(thumb))
-    : null;
-  console.log(data);
+  const userId = localStorage.getItem("userId");
+  const [images, setImages] = useState([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [category_id, setCategoryId] = useState("");
 
+
+  useEffect(() => {
+    async function loadCategorys() {
+      await api
+        .get("/categorys", {
+          headers: {
+            Authorization: userId,
+          },
+        })
+        .then((response) => {
+          setCategorys(response.data);
+        });
+    }
+    loadCategorys();
+  }, []);
+
+
+  function handleRegister(e) {
+    e.preventDefault();
+
+    const data = new FormData();
+    
+    data.append("title", title);
+    data.append("description", description);
+    data.append("price", price);
+    data.append("category_id", category_id);
+
+  }
+  
+  console.log(category_id);
   return (
     <div className="newad__content">
       <RegisterHead title="O que gostaria de anunciar ?" />
 
       <div className="newad__registerarea">
         <div className="form__content--ad">
-          <form action="">
+          <form onSubmit={handleRegister}>
             <div className="inputs__area">
               <div className="wrapper__ad">
-                <label htmlFor="name">Qual produto ou serviço ?</label>
-                <input type="text" name="name" id="name" required />
+                <label htmlFor="name">Nome do produto ou serviço ?</label>
+                <input
+                  type="text"
+                  id="title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  required
+                />
               </div>
               <div className="wrapper__ad">
                 <label htmlFor="name">Descrição</label>
-                <textarea type="textarea" name="name" id="name" required />
+                <textarea
+                  type="textarea"
+                  id="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                />
               </div>
               <div className="wrapper__ad">
                 <label htmlFor="name">Preço</label>
-                <input type="text" name="name" id="name" required />
+                <input
+                  type="number"
+                  id="price"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  required
+                />
               </div>
               <div className="wrapper__ad">
                 <label htmlFor="name">Categoria</label>
-                <select name="" id="">
+                <select value={category_id} onChange={e => setCategoryId(e.target.value)}>
                   <option value="0">Selecione</option>
-                  <option value="Acadêmicos">Acadêmicos</option>
-                  <option value="Cosméticos">Cosméticos</option>
-                  <option value="Informática">Informática</option>
-                  <option value="Comida e Bebidas">Comida e Bebidas</option>
-                  <option value="Outros">Outros</option>
+                  {categorys.map((category) => (
+                    <option value={category.id}>{category.name}</option>
+                  ))}
                 </select>
               </div>
-
-              <label htmlFor="name">Tipo</label>
-              <div className="wrapper__adcheck">
-                <input type="checkbox" name="name" id="produto" required />
-                Produto
-                <input type="checkbox" name="name" id="servico" required />
-                Serviço
-              </div>
+              <label htmlFor="">Tipo de anuncio</label>
+              <select name="" id="select">
+                <option value="">selecione</option>
+                <option value="Produto">Produto</option>
+                <option value="Serviço">Serviço</option>
+              </select>
               <button type="submit" id="button">
                 Anunciar
               </button>
             </div>
             <div className="photos__ad">
               <label
-                className={
-                  thumbnail[0] ? "thumbs main has-thumb" : "thumbs main"
-                }
+                className={images[0] ? "thumbs main has-thumb" : "thumbs main"}
                 style={{
                   backgroundImage: `url(${
-                    thumbnail[0] ? URL.createObjectURL(thumbnail[0]) : ""
+                    images[0] ? URL.createObjectURL(images[0]) : ""
                   })`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -74,22 +119,17 @@ function RegisterAd() {
                 <input
                   type="file"
                   onChange={(event) =>
-                    setThumbnail((thumbnail) => [
-                      ...thumbnail,
-                      event.target.files[0],
-                    ])
+                    setImages((images) => [...images, event.target.files[0]])
                   }
                 />
                 <AiOutlineCamera />
               </label>
               <div className="small">
                 <label
-                  className={
-                    thumbnail[1] ? "thumbs sec has-thumb" : "thumbs sec"
-                  }
+                  className={images[1] ? "thumbs sec has-thumb" : "thumbs sec"}
                   style={{
                     backgroundImage: `url(${
-                      thumbnail[1] ? URL.createObjectURL(thumbnail[1]) : ""
+                      images[1] ? URL.createObjectURL(images[1]) : ""
                     })`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
@@ -101,21 +141,16 @@ function RegisterAd() {
                     type="file"
                     multiple
                     onChange={(event) =>
-                      setThumbnail((thumbnail) => [
-                        ...thumbnail,
-                        event.target.files[0],
-                      ])
+                      setImages((images) => [...images, event.target.files[0]])
                     }
                   />
                   <AiOutlineCamera />
                 </label>
                 <label
-                  className={
-                    thumbnail[2] ? "thumbs sec has-thumb" : "thumbs sec"
-                  }
+                  className={images[2] ? "thumbs sec has-thumb" : "thumbs sec"}
                   style={{
                     backgroundImage: `url(${
-                      thumbnail[2] ? URL.createObjectURL(thumbnail[2]) : ""
+                      images[2] ? URL.createObjectURL(images[2]) : ""
                     })`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
@@ -126,21 +161,16 @@ function RegisterAd() {
                   <input
                     type="file"
                     onChange={(event) =>
-                      setThumbnail((thumbnail) => [
-                        ...thumbnail,
-                        event.target.files[0],
-                      ])
+                      setImages((images) => [...images, event.target.files[0]])
                     }
                   />
                   <AiOutlineCamera />
                 </label>
                 <label
-                  className={
-                    thumbnail[3] ? "thumbs sec has-thumb" : "thumbs sec"
-                  }
+                  className={images[3] ? "thumbs sec has-thumb" : "thumbs sec"}
                   style={{
                     backgroundImage: `url(${
-                      thumbnail[3] ? URL.createObjectURL(thumbnail[3]) : ""
+                      images[3] ? URL.createObjectURL(images[3]) : ""
                     })`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
@@ -151,21 +181,16 @@ function RegisterAd() {
                   <input
                     type="file"
                     onChange={(event) =>
-                      setThumbnail((thumbnail) => [
-                        ...thumbnail,
-                        event.target.files[0],
-                      ])
+                      setImages((images) => [...images, event.target.files[0]])
                     }
                   />
                   <AiOutlineCamera />
                 </label>
                 <label
-                  className={
-                    thumbnail[4] ? "thumbs sec has-thumb" : "thumbs sec"
-                  }
+                  className={images[4] ? "thumbs sec has-thumb" : "thumbs sec"}
                   style={{
                     backgroundImage: `url(${
-                      thumbnail[4] ? URL.createObjectURL(thumbnail[4]) : ""
+                      images[4] ? URL.createObjectURL(images[4]) : ""
                     })`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
@@ -176,10 +201,7 @@ function RegisterAd() {
                   <input
                     type="file"
                     onChange={(event) =>
-                      setThumbnail((thumbnail) => [
-                        ...thumbnail,
-                        event.target.files[0],
-                      ])
+                      setImages((images) => [...images, event.target.files[0]])
                     }
                   />
                   <AiOutlineCamera />

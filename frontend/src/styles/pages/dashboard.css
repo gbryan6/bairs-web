@@ -10,9 +10,8 @@
 
 .my__ads{
     width: 80%;
-    max-width: 1200px;
+    overflow-y: hidden;
     margin: 60px auto;
-
 }
 
 

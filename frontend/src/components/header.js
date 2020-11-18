@@ -11,6 +11,8 @@ function Header() {
   const Logged = localStorage.getItem("userId");
   const [user, setUser] = useState([]);
 
+  const [registration_path, setRegistrationPath] = useState([]);
+
   useEffect(() => {
     async function loaddata() {
       await api.get(`/user/${Logged}`).then((response) => {
@@ -22,44 +24,40 @@ function Header() {
 
   const history = useHistory();
 
+  function handleMatriculation(e){
+    e.preventDefault();
+
+    console.log(registration_path);
+  }
+
   function logout() {
     localStorage.removeItem("userId");
     history.push("/login");
   }
-
+  
   return (
     <>
-      {Logged ? (
+      { Logged ? (
         user.map((user) => (
           <div key={user.id}>
             {user.situation === "Unauthorized" ? (
-              <div
-                style={{
-                  background: "#FF0000",
-                  height: "30px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <p
-                  style={{
-                    background: "#FF0000",
-                    border: "2px solid #FFFF",
-                    color: "#FFF",
-                    fontSize: "14px",
-                  }}
-                >
-                  Enviar matricula aqui
+              
+                <form onSubmit={handleMatriculation} className="top-bar__un">
+                <label>
+                  Você ainda não está autorizado a publicar anúncios, por favor envie <strong>aqui</strong>  sua matricula
                   <input
                     type="file"
-                    style={{
-                      width: "100%",
-                      display: "none",
-                    }}
+                    onChange={e => setRegistrationPath(e.target.files[0])}
+                    className="top-bar__env"
                   />
-                </p>
-              </div>
+                </label>
+                {
+                  registration_path ? 
+                    <button type="submit" id="button"style={{width: "60px", height: "20px", margin: "0", fontSize: "12px", borderRadius: "2px", marginRight: "10px"}}>Enviar</button>
+                  : ""
+                }
+                </form>
+                
             ) : (
               ""
             )}

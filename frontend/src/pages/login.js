@@ -25,13 +25,12 @@ function Login() {
       password,
     };
 
-    try {
+      
       const response = await api.post("session/user", data);
+      alert("Você será redirecionado.")
       setLocal("userId", response.data.id);
       history.push("/");
-    } catch (error) {
-      return;
-    }
+    
   }
 
   return (
