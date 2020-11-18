@@ -2,11 +2,13 @@ import React from "react";
 import "../styles/pages/dashboard.css";
 import HeaderDashboard from "../components/headerDashboard";
 import Header from "../components/header";
-import Feed from "../components/feed";
-
+import MyAds from "../components/myads";
+import {useParams} from 'react-router-dom';
 // import { Container } from './styles';
 
 function Dashboard() {
+
+  const user = useParams();
 
   return (
     <div className="dashboard__all">
@@ -14,10 +16,10 @@ function Dashboard() {
         <Header />
       </nav>
       <div>
-        <HeaderDashboard />
+        <HeaderDashboard userId={user.id}/>
       </div>
       <div className="my__ads">
-        <Feed />
+        <MyAds />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import "../styles/pages/register.css";
 import RegisterHead from "../components/registerHead.js";
 // import { Container } from './styles';
 function AlterInfo() {
-  const periods = ["1","2","3","4","5","6","7","8","9","10","11","12"];
+  const periods = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
   const [thumbnail, setThumbnail] = useState(null);
   const [date, setDate] = useState("");
 
@@ -77,9 +77,9 @@ function AlterInfo() {
                 <label htmlFor="period">
                   Periodo
                   <select type="text" id="select" name="period">
-                  <option value="-1">Selecione o periodo</option>
-                    {periods.map((period) =>(
-                        <option value={`${period}º periodo`}>{`${period}º periodo`}</option>
+                    <option value="-1">Selecione o periodo</option>
+                    {periods.map((period) => (
+                      <option value={`${period}º periodo`}>{`${period}º periodo`}</option>
                     ))
                     }
                   </select>

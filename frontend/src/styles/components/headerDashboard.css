@@ -11,17 +11,21 @@
 }
 
 .dash__img img{
-    width: 135px;
-    height: 135px;
-
-    border-radius: 50%;
+    max-width: 135px;
+    max-height: 135px;
+    width: auto;
+    height: auto;
 }
 
 .dash__img{
     width: 135px;
     height: 135px;
-    
+    overflow: hidden;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
 }
 
 .dash__info{

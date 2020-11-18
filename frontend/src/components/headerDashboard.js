@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import api from "../services/api";
 // import { Container } from './styles';
 
-function HeaderDashboard() {
-  const Logged = localStorage.getItem("userId")
+function HeaderDashboard(props) {
+  const Logged = props.userId;
   const [user, setUser] = useState([])
-  const [instituition, setInstituition] = useState("");
+  const [instituition, setInstituition] = useState([]);
 
   useEffect(() => {
     async function loaddata() {
@@ -27,9 +27,8 @@ function HeaderDashboard() {
       });
     })
     }
-
     loadInstituition();
-  }, []);
+  }, [user]);
 
 
   return (
@@ -38,11 +37,14 @@ function HeaderDashboard() {
       <>
       <div className="dash__user">
         <div className="dash__img">
-          <img src={`http://localhost:3333/files/profile/picture/${user.profile_path}`} alt="Foto de perfi" />
+          <img src={user.profile_path === undefined ? Perfil : `http://localhost:3333/files/profile/picture/${user.profile_path}`} alt="Foto de perfi" />
         </div>
         <div className="dash__info">
           <h1>{user.full_name}</h1>
-          <p>{`${instituition.name} - ${instituition.campus}`}</p>
+          {
+            instituition.map(university =>
+          <p>{`${university.name} - ${university.campus}`}</p>
+            )}
           <Link
             to="/alterinfo"
             type="submit"

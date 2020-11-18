@@ -76,6 +76,16 @@
     margin-right: 10px;
     background-size: contain;
     background-position: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.top-bar__image img{
+    max-width: 40px;
+    max-height: 40px;
 }
 
 .top-bar__button {
@@ -128,4 +138,14 @@
 #top-bar__name{
     font-size: 14px;
     font-weight: 500;
+}
+
+.top-bar__logout{
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+}
+.top-bar__logout svg{
+    width: 20px;
+    height: 20px;
 }

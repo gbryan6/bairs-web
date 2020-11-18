@@ -24,7 +24,7 @@ export default function Routes() {
 
         <Route path="/ad/temp" component={Ad} />
 
-        <Route path="/dashboard/temp" component={Dashboard} />
+        <Route path="/dashboard/:id" component={Dashboard} />
 
         <Route path="/congratulations" component={Congratulations} />
 
