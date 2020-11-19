@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/header";
 import Info from "../components/adinfo.js";
 import {useParams} from "react-router-dom"; 
-import "../styles/pages/ad.css";
+import "../styles/pages/advert.css";
 // import { Container } from './styles';
 
 function Advert() {
