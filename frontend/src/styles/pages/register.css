@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 15px;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     text-decoration: none;

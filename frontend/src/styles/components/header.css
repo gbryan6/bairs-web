@@ -90,6 +90,11 @@
     height: auto;
 }
 
+.top-bar__unlog--mess{
+    font-family: "Roboto",sans-serif;
+    color: var(--text-color);
+}
+
 .top-bar__button {
     height: 37px;
     width: 150px;

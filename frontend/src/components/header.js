@@ -24,21 +24,18 @@ function Header() {
 
   const history = useHistory();
 
- async function handleMatriculation(e) {
+  async function handleMatriculation(e) {
     e.preventDefault();
 
     const data = new FormData();
 
     data.append("registration_path", registration_path);
 
-    console.log(data.values);
-   /* await api.post("/registration/send", data, {
-      headers:{
-        Authorization: Logged
-      }
-    });*/
-
-    
+    await api.put("/registration/send", data, {
+      headers: {
+        Authorization: Logged,
+      },
+    });
   }
 
   function logout() {
@@ -122,7 +119,11 @@ function Header() {
                     </Link>
                   </div>
                   <div className="icon-button">
-                    <Link to="/login" onClick={logout} className="top-bar__logout">
+                    <Link
+                      to="/login"
+                      onClick={logout}
+                      className="top-bar__logout"
+                    >
                       <AiOutlinePoweroff />
                     </Link>
                   </div>
@@ -147,23 +148,9 @@ function Header() {
         ))
       ) : (
         <nav className="top-bar__content">
-          <Link to="/" className="wrapper__logo">
-            <img src={Logo} alt="Logotipo Bairs" className="top-bar__logo" />
-          </Link>
-          <div className="top-bar__search">
-            <input
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Pesquise algo ..."
-              className="top-bar___text"
-            />
-            <div className="icon-button search__icon">
-              <MdSearch className="icon" />
-            </div>
-          </div>
-          <Link to={Logged ? "/newad" : "/login"} className="top-bar__button">
-            Quero anunciar
+          <h2 className="top-bar__unlog--mess">Você precisa estar logado para ver os anuncios</h2>
+          <Link to={"/login"} className="top-bar__button">
+            Quero Entrar
           </Link>
         </nav>
       )}

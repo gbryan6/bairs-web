@@ -5,10 +5,9 @@
 }
 
 .myads__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 18px;
-    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .myads__filter {
@@ -17,66 +16,54 @@
     font-weight: bold;
     font-size: 36px;
     color: var(--color-text);
+
     margin-bottom: 20px;
     padding-bottom: 0;
     border-bottom: 3px solid var(--color-text);
 }
 
-.myads__image img {
-    max-width: 271px;
-    max-height: 175px;
-    width: auto;
-    height: auto;
+.myads__name p {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--color-text);
+
+    display: flex;
+    align-content: center;
 }
 
-.myads__image {
+.myads__price h3 {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--color-text);
+
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.myads__informations {
-    display: flex;
-}
-
-.userphoto img {
-    margin-top: 20px;
-    max-width: 36px;
-    max-height: 36px;
-    width: auto;
-    height: auto;
-    margin-right: 8px;
-    margin-top: 7px;
-    border-radius: 80%;
-}
-
-.myads__informations--left p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--color-text);
-    margin-top: 10px;
-    text-align: justify;
-}
-
-.myads__informations--left span {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    color: var(--color-text);
-    margin-top: 5px;
-}
-
-.myads__informations--left h3 {
-    position: relative;
-    right: -96px;
-    top: -18px;
+.myads__actions {
     font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 22px;
+    font-weight: 300;
+    font-size: 15px;
     color: var(--color-text);
+
+    display: flex;
+    flex-direction: column;
 }
+
+.myads__actions--edit{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.myads__actions--delete{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+
+

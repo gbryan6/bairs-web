@@ -11,6 +11,7 @@ function Feed() {
   const [ads, setAds] = useState([]);
   const [images, setImages] = useState([]);
   const [user, setUser] = useState([]);
+  const [categorys, setCategorys] = useState([]);
 
   useEffect(() => {
     async function loaddata() {
@@ -57,28 +58,43 @@ function Feed() {
     loaddata();
   }, [userId]);
 
+  useEffect(() => {
+    async function loaddata() {
+      await api
+        .get(`/categorys`, {
+          headers: {
+            Authorization: userId,
+          },
+        })
+        .then((response) => {
+          setCategorys(response.data);
+        });
+    }
+    loaddata();
+  }, [userId]);
+
   return (
     <div>
       <h1 className="feed__filter">#Direito</h1>
       <div className="feed__container">
         {ads.map((ad) => (
           <div key={ad.id} className="feed__ad">
-            {images.map((image) =>
-              image.product_id === ad.id ? (
-                <Link to={`/advert/${ad.id}`} key={image.id}>
-                  <div className="ad__image">
-                    <img
-                      src={`http://localhost:3333/files/images/${image.path}`}
-                      alt="anuncio"
-                    />
-                  </div>
-                </Link> 
-              ) : (
-                ""
-              )
-              
-            )}
-
+            <div className="feed__wrapper--image">
+              {images.map((image) =>
+                image.product_id === ad.id ? (
+                  <Link to={`/advert/${ad.id}`} key={image.id}>
+                    <div className="ad__image">
+                      <img
+                        src={`http://localhost:3333/files/images/${image.path}`}
+                        alt="anuncio"
+                      />
+                    </div>
+                  </Link>
+                ) : (
+                  ""
+                )
+              )}
+            </div>
             <div className="ad__informations">
               {user.map((user) =>
                 ad.user_id === user.id ? (
@@ -98,7 +114,9 @@ function Feed() {
               )}
               <div className="ad__informations--left">
                 <p>{ad.title}</p>
-                <span>Há 2 semanas</span>
+                {categorys.map((category) =>
+                  ad.category_id === category.id ? <span key={category.id}>{category.name}</span> : ""
+                )}
                 <h3>{`R$ ${ad.price}`}</h3>
               </div>
             </div>
