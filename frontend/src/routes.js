@@ -4,7 +4,7 @@ import Home from './pages/home.js';
 import Register from './pages/register.js';
 import Login from './pages/login.js';
 import RegisterAd from './pages/registerad.js';
-import Ad from './pages/ad.js';
+import Advert from './pages/advert.js';
 import Dashboard from './pages/dashboard.js';
 import Page404 from './pages/page404.js';
 import Congratulations from './pages/congratulations.js';
@@ -22,7 +22,7 @@ export default function Routes() {
 
         <Route path="/newad" component={RegisterAd} />
 
-        <Route path="/ad/:id" component={Ad} />
+        <Route path="/advert/:id" component={Advert} />
 
         <Route path="/dashboard/:id" component={Dashboard} />
 

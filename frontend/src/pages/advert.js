@@ -5,13 +5,15 @@ import {useParams} from "react-router-dom";
 import "../styles/pages/ad.css";
 // import { Container } from './styles';
 
-function Ad() {
+function Advert() {
 
   const ad = useParams();
 
+  console.log(ad);
+
   return (
-    <div>
       <div className="Ad__main">      
+    <div className="Ad__second">
       <nav>
         <Header />
       </nav>
@@ -21,4 +23,4 @@ function Ad() {
   );
 }
 
-export default Ad;
+export default Advert;

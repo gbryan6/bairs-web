@@ -65,20 +65,20 @@ function Feed() {
           <div key={ad.id} className="feed__ad">
             {images.map((image) =>
               image.product_id === ad.id ? (
-                <Link to={`/ad/${ad.id}`} key={image.id}>
+                <Link to={`/advert/${ad.id}`} key={image.id}>
                   <div className="ad__image">
                     <img
                       src={`http://localhost:3333/files/images/${image.path}`}
                       alt="anuncio"
                     />
                   </div>
-                </Link>
-                
+                </Link> 
               ) : (
                 ""
               )
               
             )}
+
             <div className="ad__informations">
               {user.map((user) =>
                 ad.user_id === user.id ? (
