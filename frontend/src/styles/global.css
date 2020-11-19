@@ -13,8 +13,8 @@ body {
     box-sizing: border-box;
     --color-primary: #FF7A00;
     --color-secondary: #FFF0E1;
-    --color-button: #3545DF;
-    --color-button-hover: #5D6CFD;
+    --color-button: #0017e6;
+    --color-button-hover: #1221B3;
     --color-text: #472B00;
 }
 

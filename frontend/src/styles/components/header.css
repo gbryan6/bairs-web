@@ -68,7 +68,7 @@
     font-size: 12px;
 }
 
-.top-bar__image{
+.top-bar__image {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -83,7 +83,7 @@
     background-color: white;
 }
 
-.top-bar__image img{
+.top-bar__image img {
     max-width: 40px;
     max-height: 40px;
     width: auto;
@@ -96,7 +96,7 @@
     background-color: var(--color-button);
     border-radius: 3px;
     font-size: 15px;
-    color: white;
+    color: rgb(253, 253, 253);
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     transition: all 0.9s;
     text-decoration: none;
@@ -108,18 +108,18 @@
 .top-bar__button_disabled {
     height: 37px;
     width: 150px;
-    background-color: #888888;
+    background-color: #100068;
     border-radius: 3px;
     font-size: 15px;
-    color:white;
+    color: rgb(82, 82, 82);
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     transition: all 0.9s;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: none;
 }
-
 
 .top-bar__button:hover {
     background-color: var(--color-button-hover);
@@ -130,46 +130,48 @@
     height: 20px;
 }
 
-.wrapper__logo{
+.wrapper__logo {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80px;
 }
 
-#top-bar__name{
+#top-bar__name {
     font-size: 14px;
     font-weight: 500;
 }
 
-.top-bar__logout{
+.top-bar__logout {
     display: flex;
     align-items: center;
     color: var(--text-color);
 }
-.top-bar__logout svg{
+
+.top-bar__logout svg {
     width: 20px;
     height: 20px;
 }
 
-.top-bar__un{
-    background: var(--color-primary);
+.top-bar__un {
+    background: #ff3131;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.25);
     height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white
 }
 
-.top-bar__un label{
+.top-bar__un label {
     width: 100%;
-   text-align: center;
-   font-family: "Montserrat", sans-serif;
-   font-size: 14px;
-   font-weight: 500;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
-
-.top-bar__env{
+.top-bar__env {
     display: none;
 }

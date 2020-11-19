@@ -1,4 +1,16 @@
-.congratulations__content{
+@keyframes float {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 20px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+.congratulations__content {
     font-family: "Montserrat", sans-serif;
     color: var(--color-primary);
     background-color: var(--color-secondary);
@@ -9,20 +21,20 @@
     justify-content: center;
 }
 
-.congratulations{
+.congratulations {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.congratulations h1{
+.congratulations h1 {
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
     font-size: 44px;
 }
 
-.congratulations p{
+.congratulations p {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
@@ -30,12 +42,15 @@
     display: flex;
 }
 
-.congratulations img{
-    width: 213px;
-    height: 226px;
+.congratulations img {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    animation-name: animacao;
+    animation: float 3s infinite;
 }
 
-.inicio a{
+.inicio a {
     display: flex;
     align-content: center;
     font-family: Montserrat;
@@ -46,7 +61,7 @@
     font-size: 24px;
 }
 
-.inicio a:hover{
+.inicio a:hover {
     display: flex;
     align-content: center;
     font-family: Montserrat;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RegisterHead from "../components/registerHead.js";
+import {useHistory} from "react-router-dom";
 import { AiOutlineCamera } from "react-icons/ai";
 import api from "../services/api";
 
@@ -7,15 +8,17 @@ import api from "../services/api";
 import "../styles/pages/registerad.css";
 
 function RegisterAd() {
-  const [categorys, setCategorys] = useState([]);
 
-  const userId = localStorage.getItem("userId");
+  const [categorys, setCategorys] = useState([]);
   const [images, setImages] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [type, setType] = useState("");
   const [category_id, setCategoryId] = useState("");
-
+  
+  const userId = localStorage.getItem("userId");
+  const history = useHistory();
 
   useEffect(() => {
     async function loadCategorys() {
@@ -33,7 +36,7 @@ function RegisterAd() {
   }, []);
 
 
-  function handleRegister(e) {
+ async function handleRegister(e) {
     e.preventDefault();
 
     const data = new FormData();
@@ -42,10 +45,25 @@ function RegisterAd() {
     data.append("description", description);
     data.append("price", price);
     data.append("category_id", category_id);
+    data.append("type", type);
+
+    images.forEach(image => {
+      data.append("images", image);
+    });
+    
+    
+
+    await api.post("/product/register", data, {
+      headers:{
+        Authorization: userId
+      },
+    }) 
+    alert("Produto cadastrado com sucesso");
+    history.push("/")
 
   }
   
-  console.log(category_id);
+  
   return (
     <div className="newad__content">
       <RegisterHead title="O que gostaria de anunciar ?" />
@@ -93,12 +111,14 @@ function RegisterAd() {
                   ))}
                 </select>
               </div>
+              <div className="wrapper__ad">
               <label htmlFor="">Tipo de anuncio</label>
-              <select name="" id="select">
-                <option value="">selecione</option>
+              <select value={type} onChange={e => setType(e.target.value)}>
+                <option value="0">Selecione</option>
                 <option value="Produto">Produto</option>
                 <option value="Serviço">Serviço</option>
               </select>
+              </div>
               <button type="submit" id="button">
                 Anunciar
               </button>

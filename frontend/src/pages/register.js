@@ -108,6 +108,7 @@ function Register() {
                 name="name"
                 id="name"
                 value={full_name}
+                autofocus="true"
                 onChange={(e) => setFullName(e.target.value)}
                 required
               />
@@ -145,12 +146,12 @@ function Register() {
                 required
               />
 
-              <label htmlFor="email">Telefone</label>
+              <label htmlFor="tel">Telefone</label>
               <input
                 type="text"
                 maxLength="11"
-                name="email"
-                id="email"
+                name="tel"
+                id="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
@@ -193,6 +194,8 @@ function Register() {
                 id="cpf"
                 name="cpf"
                 value={cpf}
+                autoComplete="off"
+                placeholder="Insira apenas números"
                 onChange={(e) => setCpf(e.target.value)}
                 required
               />
@@ -272,7 +275,7 @@ function Register() {
 
               <div className="form__flex">
                 <label htmlFor="study_shift">
-                  turno
+                  Turno
                   <select
                     id="select"
                     value={study_shift}

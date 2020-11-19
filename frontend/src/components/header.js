@@ -11,7 +11,7 @@ function Header() {
   const Logged = localStorage.getItem("userId");
   const [user, setUser] = useState([]);
 
-  const [registration_path, setRegistrationPath] = useState([]);
+  const [registration_path, setRegistrationPath] = useState("");
 
   useEffect(() => {
     async function loaddata() {
@@ -41,10 +41,10 @@ function Header() {
         user.map((user) => (
           <div key={user.id}>
             {user.situation === "Unauthorized" ? (
-              
+
                 <form onSubmit={handleMatriculation} className="top-bar__un">
                 <label>
-                  Você ainda não está autorizado a publicar anúncios, por favor envie <strong>aqui</strong>  sua matricula
+                  Você ainda não está autorizado a publicar anúncios, por favor clique <strong>aqui</strong> e envie sua matricula.
                   <input
                     type="file"
                     onChange={e => setRegistrationPath(e.target.files[0])}
@@ -52,9 +52,9 @@ function Header() {
                   />
                 </label>
                 {
-                  registration_path ? 
-                    <button type="submit" id="button"style={{width: "60px", height: "20px", margin: "0", fontSize: "12px", borderRadius: "2px", marginRight: "10px"}}>Enviar</button>
-                  : ""
+                  
+                    <button type="submit" className={ registration_path !== "" ? "top-bar__button" : "top-bar__button_disabled" } style={{width: "60px", height: "20px", margin: "0", fontSize: "12px", borderRadius: "2px", marginRight: "10px"}}>Enviar</button>
+                
                 }
                 </form>
                 
