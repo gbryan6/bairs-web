@@ -78,7 +78,7 @@ function Feed() {
             <div className="ad__wrapper">
             {images.map((image) =>
               image.product_id === ad.id ? (
-                <Link to={`/ad/${ad.id}`}>
+                <Link to={`/advert/${ad.id}`}>
                   <div key={image.id} className="ad__image">
                     <img
                       src={`http://localhost:3333/files/images/${image.path}`}
