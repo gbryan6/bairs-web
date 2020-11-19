@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import ad_image from "../images/camiseta-formandos.jpg";
 import ad_perfil from "../images/perfilP.jpg";
 import "../styles/components/feed.css";
 import api from "../services/api";
 
 function Feed() {
-  const count = 0;
   const userId = localStorage.getItem("userId");
 
-
-  const [loggedUser, setLoggedUser] = useState([]);
   const [ads, setAds] = useState([]);
   const [images, setImages] = useState([]);
   const [user, setUser] = useState([]);
@@ -29,7 +25,7 @@ function Feed() {
         });
     }
     loaddata();
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     async function loaddata() {
@@ -44,7 +40,7 @@ function Feed() {
         });
     }
     loaddata();
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     async function loaddata() {
@@ -61,29 +57,20 @@ function Feed() {
     loaddata();
   }, [userId]);
 
-  useEffect(()=>{
-    async function loadUser(){
-      await api.get(`/user/${userId}`).then(response => {
-        setLoggedUser(response.data);
-      })
-    }
-  }, [])
-
   return (
     <div>
       <h1 className="feed__filter">#Direito</h1>
       <div className="feed__container">
         {ads.map((ad) => (
-          <div className="feed__ad">
-            <div className="ad__wrapper">
+          <div key={ad.id} className="feed__ad">
             {images.map((image) =>
               image.product_id === ad.id ? (
-                <Link to={`/ad/${ad.id}`}>
-                  <div key={image.id} className="ad__image">
+                <Link to={`/ad/${ad.id}`} key={image.id}>
+                  <div className="ad__image">
                     <img
                       src={`http://localhost:3333/files/images/${image.path}`}
                       alt="anuncio"
-                    ></img>
+                    />
                   </div>
                 </Link>
                 
@@ -92,11 +79,10 @@ function Feed() {
               )
               
             )}
-            </div>
             <div className="ad__informations">
               {user.map((user) =>
                 ad.user_id === user.id ? (
-                  <div className="userphoto">
+                  <div key={user.id} className="userphoto">
                     <img
                       src={
                         user.profile_path !== "undefined"

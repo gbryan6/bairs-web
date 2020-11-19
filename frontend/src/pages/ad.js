@@ -10,11 +10,11 @@ function Ad() {
   const ad = useParams();
 
   return (
-    <div className="ad__content">
+    <div>
+      <div className="Ad__main">      
       <nav>
         <Header />
       </nav>
-      <div className="wrapper__info">
         <Info ad={ad.id}/>
       </div>
     </div>

@@ -1,4 +1,4 @@
-.ad__content{
+.Ad__main{
         width: 100vw;
         height: 100vh;
         background-color: var(--color-secondary);
@@ -9,7 +9,5 @@
 
 .wrapper__info{
     height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
 }

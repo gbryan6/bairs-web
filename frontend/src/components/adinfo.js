@@ -10,16 +10,16 @@ function AdInfo(props) {
   const [images, setImages] = useState([]);
 
   const userId = localStorage.getItem("userId");
-
+  const adId = props.ad
 
   useEffect(() => {
     async function loaddata() {
-      await api.get(`/product/${props.ad}`).then((response) => {
+      await api.get(`/product/${adId}`).then((response) => {
         setAds(response.data);
       });
     }
     loaddata();
-  }, []);
+  }, [adId]);
 
   useEffect(() => {
     async function loaddata() {
@@ -34,15 +34,15 @@ function AdInfo(props) {
         });
     }
     loaddata();
-  }, []);
+  }, [userId]);
 
   return (
     <div className="ad__infos">
       { ad.map(ad => (
-      <>
-      { images.map(image => 
+      <div key={ad.id}>
+      {images.map(image => 
        image.product_id === ad.id ?
-      <div key={ad.id} className="info__image">
+      <div key={image.id} className="info__image">
         <img src={`http://localhost:3333/files/images/${image.path}`} alt="Foto do anuncio" />
       </div>:
       ""
@@ -70,7 +70,7 @@ function AdInfo(props) {
           </div>
         </div>
       </div>
-      </>
+      </div>
       ))}
     </div>
   );

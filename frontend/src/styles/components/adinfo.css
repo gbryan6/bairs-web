@@ -22,7 +22,7 @@
 .ad__infos{
     font-family: 'Roboto', sans-serif;
     color: var(--color-text);
-    display: flex;
+    
 }
 
 .wrapper__title{

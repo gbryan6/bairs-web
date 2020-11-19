@@ -43,7 +43,6 @@ function Header() {
 
   function logout() {
     localStorage.removeItem("userId");
-    history.push("/login");
   }
 
   return (
@@ -123,7 +122,7 @@ function Header() {
                     </Link>
                   </div>
                   <div className="icon-button">
-                    <Link onClick={logout} className="top-bar__logout">
+                    <Link to="/login" onClick={logout} className="top-bar__logout">
                       <AiOutlinePoweroff />
                     </Link>
                   </div>
