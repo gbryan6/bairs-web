@@ -16,13 +16,13 @@ export default function Routes() {
       <Switch>
         <Route path="/" exact component={Home} />
 
-        <Route path="/register" exact component={Register} />
+        <Route path="/register" component={Register} />
 
         <Route path="/login" component={Login} />
 
         <Route path="/newad" component={RegisterAd} />
 
-        <Route path="/ad/temp" component={Ad} />
+        <Route path="/ad/:id" component={Ad} />
 
         <Route path="/dashboard/:id" component={Dashboard} />
 

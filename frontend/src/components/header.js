@@ -24,40 +24,65 @@ function Header() {
 
   const history = useHistory();
 
-  function handleMatriculation(e){
+ async function handleMatriculation(e) {
     e.preventDefault();
 
-    console.log(registration_path);
+    const data = new FormData();
+
+    data.append("registration_path", registration_path);
+
+    console.log(data.values);
+   /* await api.post("/registration/send", data, {
+      headers:{
+        Authorization: Logged
+      }
+    });*/
+
+    
   }
 
   function logout() {
     localStorage.removeItem("userId");
     history.push("/login");
   }
-  
+
   return (
     <>
-      { Logged ? (
+      {Logged ? (
         user.map((user) => (
           <div key={user.id}>
             {user.situation === "Unauthorized" ? (
-
-                <form onSubmit={handleMatriculation} className="top-bar__un">
+              <form onSubmit={handleMatriculation} className="top-bar__un">
                 <label>
-                  Você ainda não está autorizado a publicar anúncios, por favor clique <strong>aqui</strong> e envie sua matricula.
+                  Você ainda não está autorizado a publicar anúncios, por favor
+                  clique <strong>aqui</strong> e envie sua matricula.
                   <input
                     type="file"
-                    onChange={e => setRegistrationPath(e.target.files[0])}
+                    onChange={(e) => setRegistrationPath(e.target.files[0])}
                     className="top-bar__env"
                   />
                 </label>
                 {
-                  
-                    <button type="submit" className={ registration_path !== "" ? "top-bar__button" : "top-bar__button_disabled" } style={{width: "60px", height: "20px", margin: "0", fontSize: "12px", borderRadius: "2px", marginRight: "10px"}}>Enviar</button>
-                
+                  <button
+                    type="submit"
+                    className={
+                      registration_path !== ""
+                        ? "top-bar__button"
+                        : "top-bar__button_disabled"
+                    }
+                    style={{
+                      width: "60px",
+                      height: "20px",
+                      margin: "0",
+                      fontSize: "12px",
+                      borderRadius: "2px",
+                      marginRight: "10px",
+                    }}
+                  >
+                    Enviar
+                  </button>
                 }
-                </form>
-                
+              </form>
             ) : (
               ""
             )}

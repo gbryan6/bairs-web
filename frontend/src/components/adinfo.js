@@ -1,25 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/components/adinfo.css";
+import api from "../services/api";
 import Pefil from "../images/perfilP.jpg";
 
 // import { Container } from './styles';
 
-function AdInfo() {
+function AdInfo(props) {
+  const [ad, setAds] = useState([]);
+  const [images, setImages] = useState([]);
+
+  const userId = localStorage.getItem("userId");
+
+
+  useEffect(() => {
+    async function loaddata() {
+      await api.get(`/product/${props.ad}`).then((response) => {
+        setAds(response.data);
+      });
+    }
+    loaddata();
+  }, []);
+
+  useEffect(() => {
+    async function loaddata() {
+      await api
+        .get("/images", {
+          headers: {
+            Authorization: userId,
+          },
+        })
+        .then((response) => {
+          setImages(response.data);
+        });
+    }
+    loaddata();
+  }, []);
+
   return (
     <div className="ad__infos">
-      <div className="info__image">
-        <img src="" alt="" />
-      </div>
+      { ad.map(ad => (
+      <>
+      { images.map(image => 
+       image.product_id === ad.id ?
+      <div key={ad.id} className="info__image">
+        <img src={`http://localhost:3333/files/images/${image.path}`} alt="Foto do anuncio" />
+      </div>:
+      ""
+      )
+      }
       <div className="ad__moreInfo">
         <div className="wrapper__title">
-          <h1 className="ad__title">ASDAS</h1>
-          <p className="ad__category">1</p>
+          <h1 className="ad__title">{ad.title}</h1>
+          <p className="ad__category">{ad.type}</p>
         </div>
-        <h2 className="ad__price">20,99</h2>
+        <h2 className="ad__price">{`R$ ${ad.price}`}</h2>
         <div className="ad__description">
           <p>
-            scoisicoasdasd soadosadasodkasodak o dsadasdas dasdasdas dsadsadas
-            dsdasad ads das
+            {ad.description}
           </p>
         </div>
         <button id="button">Fazer Negocio</button>
@@ -33,6 +70,8 @@ function AdInfo() {
           </div>
         </div>
       </div>
+      </>
+      ))}
     </div>
   );
 }
