@@ -115,7 +115,11 @@ function Feed() {
               <div className="ad__informations--left">
                 <p>{ad.title}</p>
                 {categorys.map((category) =>
-                  ad.category_id === category.id ? <span key={category.id}>{category.name}</span> : ""
+                  ad.category_id === category.id ? (
+                    <span key={category.id}>{category.name}</span>
+                  ) : (
+                    ""
+                  )
                 )}
                 <h3>{`R$ ${ad.price}`}</h3>
               </div>

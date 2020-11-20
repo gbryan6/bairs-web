@@ -1,149 +1,148 @@
 .newad__content {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 .newad__registerarea {
-    height: 80vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form__content--ad {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .form__content--ad form {
-    display: flex;
-    width: 50%;
-    justify-content: space-around;
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
 }
 
 .form__content--ad input,
 textarea {
-    max-width: 400px;
-    width: auto;
-    height: 41px;
-    font-size: 14px;
-    background: #FFFFFF;
-    border: 2px solid rgba(255, 122, 0, 0.3);
-    border-radius: 5px;
+  max-width: 400px;
+  width: auto;
+  height: 41px;
+  font-size: 14px;
+  background: #ffffff;
+  border: 2px solid rgba(255, 122, 0, 0.3);
+  border-radius: 5px;
 }
 
 .form__content--ad input,
 textarea:focus {
-    outline: none;
+  outline: none;
 }
 
 .form__content--ad textarea {
-    padding: 0 7px;
-    resize: none;
+  padding: 0 7px;
+  resize: none;
 }
 
 .form__content--ad input,
 select {
-    font-family: "Montserrat", sans-serif;
-    padding: 0 7px;
+  font-family: "Montserrat", sans-serif;
+  padding: 0 7px;
 }
 
 .form__content--ad label {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    text-align: initial;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: initial;
 }
 
 .wrapper__ad {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
 }
 
-.wrapper__adcheck{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 200px;
-    
+.wrapper__adcheck {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 200px;
 
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    margin-top: 10px;
-    margin-bottom: 5px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .photos__ad {
-    margin-top: 20px;
-    width: 50%;
-    max-width: 212px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 20px;
+  width: 50%;
+  max-width: 212px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .photos__ad label {
-    border: 2px solid rgba(255, 122, 0, 0.3);
+  border: 2px solid rgba(255, 122, 0, 0.3);
 }
 
 .inputs__area {
-    width: 400px;
+  width: 400px;
 }
 
-.inputs__area>#button {
-    margin-top: 30px;
+.inputs__area > #button {
+  margin-top: 30px;
 }
 
 .main {
-    width: 208px;
-    height: 200px;
-    padding: 0;
-    display: flex;
+  width: 208px;
+  height: 200px;
+  padding: 0;
+  display: flex;
 }
 
 .sec {
-    width: 100px;
-    height: 100px;
-    padding: 0;
-    display: flex;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  display: flex;
 }
 
 .small {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
 }
 
 .thumbs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.thumbs>input {
-    width: 100%;
-    height: 100%;
-    display: none;
+.thumbs > input {
+  width: 100%;
+  height: 100%;
+  display: none;
 }
 
-.thumbs>svg {
-    width: 25px;
-    height: 25px;
+.thumbs > svg {
+  width: 25px;
+  height: 25px;
 }
 
 .has-thumb svg {
-    display: none;
+  display: none;
 }

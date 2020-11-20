@@ -1,30 +1,15 @@
-.dashboard__all{
-    background-color: var(--color-secondary);
-    background-image: url('../../images/Bakground.svg');
-    background-size: cover;
-    background-attachment: fixed;
+.dashboard__all {
+  background-color: var(--color-secondary);
+  background-image: url("../../images/Bakground.svg");
+  background-size: cover;
+  background-attachment: fixed;
 
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
-.my__ads{
-    width: 80%;
-    overflow-y: hidden;
-    margin: 60px auto;
+.my__ads {
+  width: 80%;
+  overflow-y: hidden;
+  margin: 60px auto;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

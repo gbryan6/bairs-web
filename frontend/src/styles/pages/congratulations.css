@@ -1,71 +1,71 @@
 @keyframes float {
-    0% {
-        top: 0px;
-    }
-    50% {
-        top: 20px;
-    }
-    100% {
-        top: 0px;
-    }
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 20px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 .congratulations__content {
-    font-family: "Montserrat", sans-serif;
-    color: var(--color-primary);
-    background-color: var(--color-secondary);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .congratulations {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .congratulations h1 {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 44px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 44px;
 }
 
 .congratulations p {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    display: flex;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  display: flex;
 }
 
 .congratulations img {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    animation-name: animacao;
-    animation: float 3s infinite;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: animacao;
+  animation: float 3s infinite;
 }
 
 .inicio a {
-    display: flex;
-    align-content: center;
-    font-family: Montserrat;
-    color: var(--color-primary);
-    text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
+  display: flex;
+  align-content: center;
+  font-family: Montserrat;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .inicio a:hover {
-    display: flex;
-    align-content: center;
-    font-family: Montserrat;
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 24px;
+  display: flex;
+  align-content: center;
+  font-family: Montserrat;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 24px;
 }

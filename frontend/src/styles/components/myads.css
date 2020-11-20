@@ -1,69 +1,143 @@
 * {
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 .myads__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .myads__filter {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    color: var(--color-text);
-
-    margin-bottom: 20px;
-    padding-bottom: 0;
-    border-bottom: 3px solid var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  border-bottom: 3px solid var(--color-text);
 }
 
 .myads__name p {
-    font-family: Roboto;
-    font-weight: bold;
-    font-size: 16px;
-    color: var(--color-text);
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--color-text);
+  display: flex;
+  align-content: center;
+  max-width: 400px;
+}
 
-    display: flex;
-    align-content: center;
+.myads__wrapper--image {
+  width: 271px;
+  height: 175px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.myads__name--title {
+  font-family: Roboto;
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+
+.myads__photo {
+  width: 271px;
+  height: 175px;
+  overflow: hidden;
+
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myads__photo img {
+  max-width: 269px;
+  max-height: 174px;
 }
 
 .myads__price h3 {
-    font-family: Roboto;
-    font-weight: bold;
-    font-size: 16px;
-    color: var(--color-text);
-
-    display: flex;
-    align-items: center;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
 }
 
 .myads__actions {
-    font-family: Roboto;
-    font-weight: 300;
-    font-size: 15px;
-    color: var(--color-text);
-
-    display: flex;
-    flex-direction: column;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
 }
 
-.myads__actions--edit{
-    display: flex;
-    justify-content: flex-end;
+.myads__actions--edit {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.myads__actions--delete{
-    display: flex;
-    justify-content: flex-end;
+.myads__actions--delete {
+  display: flex;
+  justify-content: flex-end;
+}
+.myads__button--edit {
+  height: 37px;
+  width: 150px;
+  background-color: var(--color-button);
+  border-radius: 3px;
+  font-size: 15px;
+  color: rgb(253, 253, 253);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.9s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-
-
-
-
+.myads__button--edit:focus,
+.myads__button--delete:focus {
+  outline: none;
+}
+.myads__button--edit:hover {
+  background-color: var(--color-button-hover);
+  transition: all 0.3s;
+}
+.myads__lbl--edit {
+  margin-right: 12px;
+}
+.myads__button--delete {
+  margin-top: 40px;
+  height: 37px;
+  width: 150px;
+  background-color: rgb(255, 74, 74);
+  border-radius: 3px;
+  font-size: 15px;
+  color: rgb(253, 253, 253);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.9s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.myads__button--delete:hover {
+  background-color: rgb(219, 48, 48);
+  transition: all 0.3s;
+}
+.myads__button--delete svg {
+  height: 20px;
+  width: 20px;
+}
+.myads__lbl--delete {
+  margin-right: 5px;
+}

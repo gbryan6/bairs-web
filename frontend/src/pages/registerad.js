@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RegisterHead from "../components/registerHead.js";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { AiOutlineCamera } from "react-icons/ai";
 import api from "../services/api";
 
@@ -8,7 +8,6 @@ import api from "../services/api";
 import "../styles/pages/registerad.css";
 
 function RegisterAd() {
-
   const [categorys, setCategorys] = useState([]);
   const [images, setImages] = useState([]);
   const [title, setTitle] = useState("");
@@ -16,7 +15,7 @@ function RegisterAd() {
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
   const [category_id, setCategoryId] = useState("");
-  
+
   const userId = localStorage.getItem("userId");
   const history = useHistory();
 
@@ -33,37 +32,32 @@ function RegisterAd() {
         });
     }
     loadCategorys();
-  }, []);
+  }, [userId]);
 
-
- async function handleRegister(e) {
+  async function handleRegister(e) {
     e.preventDefault();
 
     const data = new FormData();
-    
+
     data.append("title", title);
     data.append("description", description);
     data.append("price", price);
     data.append("category_id", category_id);
     data.append("type", type);
 
-    images.forEach(image => {
+    images.forEach((image) => {
       data.append("images", image);
     });
-    
-    
 
     await api.post("/product/register", data, {
-      headers:{
-        Authorization: userId
+      headers: {
+        Authorization: userId,
       },
-    }) 
+    });
     alert("Produto cadastrado com sucesso");
-    history.push("/")
-
+    history.push("/");
   }
-  
-  
+
   return (
     <div className="newad__content">
       <RegisterHead title="O que gostaria de anunciar ?" />
@@ -104,7 +98,10 @@ function RegisterAd() {
               </div>
               <div className="wrapper__ad">
                 <label htmlFor="name">Categoria</label>
-                <select value={category_id} onChange={e => setCategoryId(e.target.value)}>
+                <select
+                  value={category_id}
+                  onChange={(e) => setCategoryId(e.target.value)}
+                >
                   <option value="0">Selecione</option>
                   {categorys.map((category) => (
                     <option value={category.id}>{category.name}</option>
@@ -112,12 +109,12 @@ function RegisterAd() {
                 </select>
               </div>
               <div className="wrapper__ad">
-              <label htmlFor="">Tipo de anuncio</label>
-              <select value={type} onChange={e => setType(e.target.value)}>
-                <option value="0">Selecione</option>
-                <option value="Produto">Produto</option>
-                <option value="Serviço">Serviço</option>
-              </select>
+                <label htmlFor="">Tipo de anuncio</label>
+                <select value={type} onChange={(e) => setType(e.target.value)}>
+                  <option value="0">Selecione</option>
+                  <option value="Produto">Produto</option>
+                  <option value="Serviço">Serviço</option>
+                </select>
               </div>
               <button type="submit" id="button">
                 Anunciar

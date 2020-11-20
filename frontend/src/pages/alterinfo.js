@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom'
-import { FaUserCircle } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 import "../styles/pages/register.css";
 import RegisterHead from "../components/registerHead.js";
-import api from "../services/api"
-
-
+import api from "../services/api";
 
 function AlterInfo() {
-  const periods = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+  const periods = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+  ];
   const [instituition, setInstituition] = useState([]);
   const [instituitions, setInstituitions] = useState([]);
   const [classrooms, setClassrooms] = useState([]);
@@ -25,9 +35,9 @@ function AlterInfo() {
   const [classroom_id, setClassroom_id] = useState("");
 
   const Logged = localStorage.getItem("userId");
-  const history = useHistory()
+  const history = useHistory();
 
-// roba uma função aq rapidin 
+  // roba uma função aq rapidin
   useEffect(() => {
     async function loadInstituitions() {
       await api.get("/instituitions").then((response) => {
@@ -39,17 +49,18 @@ function AlterInfo() {
 
   useEffect(() => {
     async function loadClassrooms() {
-      await api.get("/classrooms", {
-        headers: {
-          Authorization: instituition_id
-        }
-      }).then((response) => {
-        setClassrooms(response.data);
-      });
+      await api
+        .get("/classrooms", {
+          headers: {
+            Authorization: instituition_id,
+          },
+        })
+        .then((response) => {
+          setClassrooms(response.data);
+        });
     }
     loadClassrooms();
   }, [instituition_id]);
-
 
   useEffect(() => {
     async function loadInstituition() {
@@ -62,23 +73,20 @@ function AlterInfo() {
   }, [instituition_id]);
 
   useEffect(() => {
-    async function loadUser(){
-      await api.get(`/user/${Logged}`).then(response => {
+    async function loadUser() {
+      await api.get(`/user/${Logged}`).then((response) => {
         setUser(response.data);
-      })
+      });
     }
-    loadUser()
-
-  },[])
-
-
+    loadUser();
+  }, [Logged]);
 
   async function handleUpdate(e) {
     e.preventDefault();
 
     const id = user[0].id;
 
-    const data  = {
+    const data = {
       study_shift,
       phone,
       period,
@@ -88,19 +96,23 @@ function AlterInfo() {
       username,
       instituition_id,
       classroom_id,
-    }
+    };
 
-    if(period === "" || genre ==="" || study_shift === "" || instituition_id === "" || classroom_id === ""){
-      alert("Você precisa preencher todos os campos!")
-      return
+    if (
+      period === "" ||
+      genre === "" ||
+      study_shift === "" ||
+      instituition_id === "" ||
+      classroom_id === ""
+    ) {
+      alert("Você precisa preencher todos os campos!");
+      return;
     }
 
     await api.put(`user/update/${id}`, data);
-    history.push(`/dashboard/${id}`)  
+    history.push(`/dashboard/${id}`);
   }
 
-
-  
   return (
     <div className="register__all">
       <RegisterHead title="Alterar Informações" />
@@ -108,42 +120,44 @@ function AlterInfo() {
         <div className="form__content">
           <form className="form__area" onSubmit={handleUpdate}>
             <div className="form__student">
-              {user.map(user => (
-              <>
-                <label key={user.id} htmlFor="nickname">Usuario</label>
-                <input 
-                  type="text" 
-                  name="nickname" 
-                  id="nickname" 
-                  placeholder={user.username}
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
-                  required 
+              {user.map((user) => (
+                <>
+                  <label key={user.id} htmlFor="nickname">
+                    Usuario
+                  </label>
+                  <input
+                    type="text"
+                    name="nickname"
+                    id="nickname"
+                    placeholder={user.username}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
                   />
 
-                <label htmlFor="mail">E-mail</label>
-                <input 
-                  type="text" 
-                  name="mail" 
-                  id="mail" 
-                  placeholder={user.mail}
-                  value={mail}
-                  onChange={e => setMail(e.target.value)}
-                  required 
+                  <label htmlFor="mail">E-mail</label>
+                  <input
+                    type="text"
+                    name="mail"
+                    id="mail"
+                    placeholder={user.mail}
+                    value={mail}
+                    onChange={(e) => setMail(e.target.value)}
+                    required
                   />
 
-                <label htmlFor="description">Telefone</label>
-                <input 
-                  type="text" 
-                  maxLength="11" 
-                  id="tel"
-                  placeholder={user.phone}
-                  defaultValue={user.phone}
-                  value={phone}
-                  onChange={e => setPhone(e.target.value)}
-                  required
+                  <label htmlFor="description">Telefone</label>
+                  <input
+                    type="text"
+                    maxLength="11"
+                    id="tel"
+                    placeholder={user.phone}
+                    defaultValue={user.phone}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
                   />
-              </>
+                </>
               ))}
               <label htmlFor="University">Nome da Universidade</label>
               <select
@@ -152,14 +166,16 @@ function AlterInfo() {
                 onChange={(e) => setInstituition_id(e.target.value)}
                 required
               >
-                <option value="-1" selected>Selecione a Universidade</option>
+                <option value="-1" selected>
+                  Selecione a Universidade
+                </option>
                 {instituitions.map((instituition) => (
                   <option key={instituition.id} value={instituition.id}>
                     {instituition.name} - ({instituition.campus})
                   </option>
                 ))}
               </select>
-              {instituition.map((instituition) => (
+              {instituition.map((instituition) =>
                 instituition_id === "" || instituition_id === "-1" ? null : (
                   <>
                     <label key={instituition.id} htmlFor="address">
@@ -168,7 +184,7 @@ function AlterInfo() {
                     <input
                       type="text"
                       id="address"
-                      disabled 
+                      disabled
                       value={`${instituition.address}, ${instituition.number} - ${instituition.neighborhood}`}
                     />
 
@@ -176,7 +192,7 @@ function AlterInfo() {
                     <input
                       type="text"
                       id="city"
-                      disabled 
+                      disabled
                       value={instituition.city}
                     />
 
@@ -186,7 +202,7 @@ function AlterInfo() {
                         <input
                           type="text"
                           id="cep"
-                          disabled 
+                          disabled
                           value={instituition.CEP}
                         />
                       </label>
@@ -196,24 +212,25 @@ function AlterInfo() {
                         <input
                           type="text"
                           id="UF"
-                          disabled 
+                          disabled
                           value={instituition.uf}
                         />
                       </label>
                     </div>
-                    </>
-                    )))}
+                  </>
+                )
+              )}
               <div className="form__flex">
                 <label htmlFor="genre">
                   Gênero
                   <select
                     id="select"
-                    name="genre" 
-                    className="genre" 
-                    value={genre} 
-                    onChange={e => setGenre(e.target.value)}
+                    name="genre"
+                    className="genre"
+                    value={genre}
+                    onChange={(e) => setGenre(e.target.value)}
                     required
-                    >
+                  >
                     <option selected value="-1" selected>
                       Selecione
                     </option>
@@ -223,31 +240,36 @@ function AlterInfo() {
                   </select>
                 </label>
 
-                <label htmlFor="classroom">Curso
-                    <select
-                      id="select"
-                      value={classroom_id}
-                      onChange={(e) => setClassroom_id(e.target.value)}
-                      required
-                    >
-                    <option value="-1" selected>Selecione</option>
+                <label htmlFor="classroom">
+                  Curso
+                  <select
+                    id="select"
+                    value={classroom_id}
+                    onChange={(e) => setClassroom_id(e.target.value)}
+                    required
+                  >
+                    <option value="-1" selected>
+                      Selecione
+                    </option>
                     {classrooms.map((classroom) => (
-                        <option value={classroom.id}>{classroom.name}</option>
+                      <option value={classroom.id}>{classroom.name}</option>
                     ))}
-                    </select>
+                  </select>
                 </label>
               </div>
 
               <div className="form__flex">
                 <label htmlFor="study_shift">
                   Turno
-                  <select 
-                    id="select" 
-                    value={study_shift} 
-                    onChange={e => setStudyShift(e.target.value)}
+                  <select
+                    id="select"
+                    value={study_shift}
+                    onChange={(e) => setStudyShift(e.target.value)}
                     required
-                    >
-                    <option value="-1" selected>selecione</option>
+                  >
+                    <option value="-1" selected>
+                      selecione
+                    </option>
                     <option value="manha">Manhã</option>
                     <option value="tarde">Tarde</option>
                     <option value="noite">Noite</option>
@@ -256,38 +278,39 @@ function AlterInfo() {
 
                 <label htmlFor="period">
                   Periodo
-                  <select 
-                    type="text" 
-                    id="select" 
+                  <select
+                    type="text"
+                    id="select"
                     name="period"
-                    value={period} 
-                    onChange={e => setPeriod(e.target.value)}
+                    value={period}
+                    onChange={(e) => setPeriod(e.target.value)}
                     required
-                    >
-
-                    <option value="-1" selected>Selecione o periodo</option>
+                  >
+                    <option value="-1" selected>
+                      Selecione o periodo
+                    </option>
                     {periods.map((period) => (
-                      <option value={`${period}º periodo`}>{`${period}º periodo`}</option>
-                    ))
-                    }
+                      <option
+                        value={`${period}º periodo`}
+                      >{`${period}º periodo`}</option>
+                    ))}
                   </select>
-                </label> 
+                </label>
               </div>
-                <label htmlFor="password">Confirme sua senha</label>
-                <input 
-                  type="password" 
-                  name="password" 
-                  id="password" 
-                  value={password} 
-                  onChange={e => setPassword(e.target.value)}
-                  required
-                  />
-                </div> 
-                        
-              <button type="submit" id="button">
-                Alterar
-              </button>
-              
+              <label htmlFor="password">Confirme sua senha</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            <button type="submit" id="button">
+              Alterar
+            </button>
           </form>
         </div>
       </div>

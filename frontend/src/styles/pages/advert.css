@@ -1,13 +1,12 @@
-.Ad__main{
-        width: 100vw;
-        height: 100vh;
-        background-color: var(--color-secondary);
-        background-image: url('../../images/Bakground.svg');
-        background-size: cover;
-        background-attachment: fixed;
-    }
+.Ad__main {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-secondary);
+  background-image: url("../../images/Bakground.svg");
+  background-size: cover;
+  background-attachment: fixed;
+}
 
-.wrapper__info{
-    height: 90vh;
-    
+.wrapper__info {
+  height: 90vh;
 }

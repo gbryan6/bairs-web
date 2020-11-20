@@ -36,6 +36,7 @@ function Header() {
         Authorization: Logged,
       },
     });
+    history.push("/");
   }
 
   function logout() {
@@ -112,6 +113,7 @@ function Header() {
                             ? Perfil
                             : `http://localhost:3333/files/profile/picture/${user.profile_path}`
                         }
+                        alt="Foto do usuario"
                       />
                     </div>
                     <Link to={`/dashboard/${Logged}`} id="top-bar__name">
@@ -148,7 +150,9 @@ function Header() {
         ))
       ) : (
         <nav className="top-bar__content">
-          <h2 className="top-bar__unlog--mess">Você precisa estar logado para ver os anuncios</h2>
+          <h2 className="top-bar__unlog--mess">
+            Você precisa estar logado para ver os anuncios
+          </h2>
           <Link to={"/login"} className="top-bar__button">
             Quero Entrar
           </Link>

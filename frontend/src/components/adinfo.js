@@ -25,8 +25,8 @@ function AdInfo(props) {
 
   useEffect(() => {
     async function loadInstituition() {
-        api.get("/instituitions").then((response) => {
-          setInstituition(response.data);
+      api.get("/instituitions").then((response) => {
+        setInstituition(response.data);
       });
     }
     loadInstituition();
@@ -103,10 +103,15 @@ function AdInfo(props) {
                   </div>
                   <div className="wrapper__userInfo">
                     <h3 className="user__name">{user.full_name}</h3>
-                    {
-                    instiuition.map(instiuition => 
-                    instiuition.id === user.instituition_id ?
-                    <span key={instiuition.id} className="user__instituition">{`${instiuition.name} - ${user.period} `}</span>: ""
+                    {instiuition.map((instiuition) =>
+                      instiuition.id === user.instituition_id ? (
+                        <span
+                          key={instiuition.id}
+                          className="user__instituition"
+                        >{`${instiuition.name} - ${user.period} `}</span>
+                      ) : (
+                        ""
+                      )
                     )}
                   </div>
                 </div>

@@ -1,55 +1,54 @@
-.page404__content{
-    font-family: "Montserrat", sans-serif;
-    color: var(--color-primary);
-    background-color: var(--color-secondary);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.page404__content {
+  font-family: "Montserrat", sans-serif;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.page404__content h1{
-    font-size: 35px;
+.page404__content h1 {
+  font-size: 35px;
 }
 
-.page404__image img{
-    width: 100px;
-    height: 100px;
-    position: relative;
-    animation : float 3s infinite;
+.page404__image img {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation: float 3s infinite;
 }
 .page404__image {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    margin: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 30px;
 }
 
-@keyframes float{
-    0%{
-        top: 0px;
-    }
-    50%{
-        top: 20px;
-    }
-    100%{
-        top: 0px;
-    }
+@keyframes float {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 20px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
-.page404__back{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    margin: 60px 60px;
-    
+.page404__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  margin: 60px 60px;
 }
 
-.page404__back svg{
-    width: 30px;
-    height: 30px;
-    color: var(--color-primary);
+.page404__back svg {
+  width: 30px;
+  height: 30px;
+  color: var(--color-primary);
 }

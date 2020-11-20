@@ -1,182 +1,182 @@
 .top-bar__content {
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 6.3rem;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 6.3rem;
+  justify-content: space-around;
 }
 
 .top-bar__search {
-    display: flex;
-    background-color: white;
-    min-width: 250px;
-    width: 76.2rem;
-    max-width: 76.2rem;
-    height: 3.7rem;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1.1rem;
-    border-radius: 0.2rem;
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
-    justify-self: center;
+  display: flex;
+  background-color: white;
+  min-width: 250px;
+  width: 76.2rem;
+  max-width: 76.2rem;
+  height: 3.7rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.1rem;
+  border-radius: 0.2rem;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  justify-self: center;
 }
 
-.top-bar__search>input {
-    width: 100%;
-    height: 95%;
+.top-bar__search > input {
+  width: 100%;
+  height: 95%;
 }
 
-.top-bar__search>input:focus {
-    outline: none;
+.top-bar__search > input:focus {
+  outline: none;
 }
 
 .search__icon {
-    width: min(5vw, 25px);
-    height: 100%;
+  width: min(5vw, 25px);
+  height: 100%;
 }
 
 .icon-button:hover {
-    background-color: rgba(221, 221, 221, 0.5);
+  background-color: rgba(221, 221, 221, 0.5);
 }
 
 .icon-button:active {
-    background-color: rgba(156, 156, 156, 0.2);
+  background-color: rgba(156, 156, 156, 0.2);
 }
 
 .icon-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    transition: 0.9s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  transition: 0.9s;
 }
 
 .top-bar__login {
-    width: 110px;
-    height: 3.7rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 110px;
+  height: 3.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .top-bar__login a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 12px;
 }
 
 .top-bar__image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: gray;
-    margin-right: 10px;
-    background-size: contain;
-    background-position: center;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: gray;
+  margin-right: 10px;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
 }
 
 .top-bar__image img {
-    max-width: 40px;
-    max-height: 40px;
-    width: auto;
-    height: auto;
+  max-width: 40px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
 }
 
-.top-bar__unlog--mess{
-    font-family: "Roboto",sans-serif;
-    color: var(--text-color);
+.top-bar__unlog--mess {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
 }
 
 .top-bar__button {
-    height: 37px;
-    width: 150px;
-    background-color: var(--color-button);
-    border-radius: 3px;
-    font-size: 15px;
-    color: rgb(253, 253, 253);
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
-    transition: all 0.9s;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 37px;
+  width: 150px;
+  background-color: var(--color-button);
+  border-radius: 3px;
+  font-size: 15px;
+  color: rgb(253, 253, 253);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.9s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .top-bar__button_disabled {
-    height: 37px;
-    width: 150px;
-    background-color: #100068;
-    border-radius: 3px;
-    font-size: 15px;
-    color: rgb(82, 82, 82);
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
-    transition: all 0.9s;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none;
+  height: 37px;
+  width: 150px;
+  background-color: #100068;
+  border-radius: 3px;
+  font-size: 15px;
+  color: rgb(82, 82, 82);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.9s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
 }
 
 .top-bar__button:hover {
-    background-color: var(--color-button-hover);
+  background-color: var(--color-button-hover);
 }
 
 .notification {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .wrapper__logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
 }
 
 #top-bar__name {
-    font-size: 14px;
-    font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .top-bar__logout {
-    display: flex;
-    align-items: center;
-    color: var(--text-color);
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
 }
 
 .top-bar__logout svg {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .top-bar__un {
-    background: #ff3131;
-    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.25);
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white
+  background: #ff3131;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.25);
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 .top-bar__un label {
-    width: 100%;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .top-bar__env {
-    display: none;
+  display: none;
 }
