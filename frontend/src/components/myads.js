@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
-import ad_image from "../images/camiseta-formandos.jpg";
+import Logo from "../images/bairsLogoP.svg";
 import "../styles/components/myads.css";
 import api from "../services/api";
 
 
 function MyAds() {
   const userId = parseInt(localStorage.getItem("userId"));
-
   const [ads, setAds] = useState([]);
   const [images, setImages] = useState([]);
+
+  const history = useHistory();
 
   useEffect(() => {
     async function loaddata() {
@@ -44,15 +45,19 @@ function MyAds() {
     loaddata();
   }, [userId]);
 
-  async function handleDelete(ad) {
+  async function handleDelete(id) {
     let response = window.confirm("Tem certeza que quer EXCLUIR O ANUNCIO?");
-    if (response == true) {
-      await api.delete(`/product/delete/${ad}`, {
+    if (response === true) {
+
+      console.log(id);
+      console.log(userId);
+      await api.delete(`/product/delete/${id}`, {
         headers: {
           Authorization: userId,
         },
       });
       alert("Anuncio deletado com sucesso");
+      history.push(`/dashboard/${userId}`);
     }
   }
 
@@ -88,10 +93,10 @@ function MyAds() {
             </div>
             <div className="myads__actions">
               <div className="myads__actions--edit">
-                <button className="myads__button--edit">
+                <Link to={`/edit/${ad.id}`} className="myads__button--edit">
                   <label className="myads__lbl--edit">Editar</label>
                   <FiEdit />
-                </button>
+                </Link>
               </div>
               <div className="myads__actions--delete">
                 <button
@@ -105,9 +110,9 @@ function MyAds() {
             </div>
           </div>
         ) : (
-          ""
+            ""
         )
-      )}
+      )} 
       </div>
     </div>
   );

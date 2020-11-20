@@ -10,6 +10,8 @@ import api from "../services/api";
 function Header() {
   const Logged = localStorage.getItem("userId");
   const [user, setUser] = useState([]);
+  const [search, setSearch] = useState("");
+
 
   const [registration_path, setRegistrationPath] = useState("");
 
@@ -41,6 +43,11 @@ function Header() {
 
   function logout() {
     localStorage.removeItem("userId");
+  }
+
+function handleSearch(e){
+    localStorage.removeItem("search");
+    localStorage.setItem("search", search);
   }
 
   return (
@@ -84,25 +91,27 @@ function Header() {
               ""
             )}
             <nav className="top-bar__content">
-              <Link to="/" className="wrapper__logo">
+              <Link to="/" className="wrapper__logo" refresh="true">
                 <img
                   src={Logo}
                   alt="Logotipo Bairs"
                   className="top-bar__logo"
                 />
               </Link>
-              <div className="top-bar__search">
+              <form onSubmit={handleSearch} to="/search" className="top-bar__search">
                 <input
                   type="text"
                   name="search"
                   id="search"
                   placeholder="Pesquise algo ..."
                   className="top-bar___text"
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
                 />
-                <div className="icon-button search__icon">
+                <button type="submit" className="icon-button search__icon">
                   <MdSearch className="icon" />
-                </div>
-              </div>
+                </button>
+              </form>
               {Logged ? (
                 <>
                   <div key={user.id} className="top-bar__login">

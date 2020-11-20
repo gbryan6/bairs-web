@@ -76,11 +76,11 @@ function Feed() {
   return (
     <div>
       {categorys.map((category) => (
-        <>
+        <div key={category.id}>
           <h1 className="feed__filter">{`#${category.name}`}</h1>
           <div className="feed__container">
             {ads.map((ad) => 
-              ad.category_id == category.id ?
+              ad.category_id === category.id ?
             (
               <div key={ad.id} className="feed__ad">
                 <div className="feed__wrapper--image">
@@ -131,7 +131,7 @@ function Feed() {
               </div>
             ):"")}
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

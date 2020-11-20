@@ -115,7 +115,7 @@ function AlterInfo() {
 
   return (
     <div className="register__all">
-      <RegisterHead title="Alterar Informações" />
+      <RegisterHead title="Alterar Cadastro" />
       <div className="form">
         <div className="form__content">
           <form className="form__area" onSubmit={handleUpdate}>
@@ -123,7 +123,7 @@ function AlterInfo() {
               {user.map((user) => (
                 <>
                   <label key={user.id} htmlFor="nickname">
-                    Usuario
+                    Usuário
                   </label>
                   <input
                     type="text"
@@ -146,7 +146,7 @@ function AlterInfo() {
                     required
                   />
 
-                  <label htmlFor="description">Telefone</label>
+                  <label htmlFor="description">WhatsApp</label>
                   <input
                     type="text"
                     maxLength="11"
@@ -268,7 +268,7 @@ function AlterInfo() {
                     required
                   >
                     <option value="-1" selected>
-                      selecione
+                      Selecione
                     </option>
                     <option value="manha">Manhã</option>
                     <option value="tarde">Tarde</option>
@@ -277,7 +277,7 @@ function AlterInfo() {
                 </label>
 
                 <label htmlFor="period">
-                  Periodo
+                  Período
                   <select
                     type="text"
                     id="select"
@@ -287,7 +287,7 @@ function AlterInfo() {
                     required
                   >
                     <option value="-1" selected>
-                      Selecione o periodo
+                      Selecione o período
                     </option>
                     {periods.map((period) => (
                       <option

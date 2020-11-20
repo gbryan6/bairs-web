@@ -115,7 +115,7 @@ function Register() {
 
               <div className="wrapper__form">
                 <label htmlFor="nickname">
-                  Usuario
+                  Usuário
                   <input
                     type="text"
                     id="nickname"
@@ -146,7 +146,7 @@ function Register() {
                 required
               />
 
-              <label htmlFor="tel">Telefone</label>
+              <label htmlFor="tel">WhatsApp</label>
               <input
                 type="text"
                 maxLength="11"
@@ -289,7 +289,7 @@ function Register() {
                 </label>
 
                 <label htmlFor="period">
-                  Periodo
+                  Período
                   <select type="text" id="select" name="period" value={period} onChange={e => setPeriod(e.target.value)}>
                     <option value="-1">Selecione o período</option>
                     {periods.map((period) => (

@@ -94,3 +94,7 @@
   font-size: 22px;
   color: var(--color-text);
 }
+
+.ad__informations--left .search h3{
+    top:-40px;
+}

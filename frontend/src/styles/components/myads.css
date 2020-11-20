@@ -185,3 +185,10 @@
 .myads__lbl--delete {
   margin-right: 5px;
 }
+
+
+.myads__noads{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
