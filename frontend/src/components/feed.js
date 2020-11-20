@@ -75,58 +75,64 @@ function Feed() {
 
   return (
     <div>
-      <h1 className="feed__filter">#Direito</h1>
-      <div className="feed__container">
-        {ads.map((ad) => (
-          <div key={ad.id} className="feed__ad">
-            <div className="feed__wrapper--image">
-              {images.map((image) =>
-                image.product_id === ad.id ? (
-                  <Link to={`/advert/${ad.id}`} key={image.id}>
-                    <div className="ad__image">
-                      <img
-                        src={`http://localhost:3333/files/images/${image.path}`}
-                        alt="anuncio"
-                      />
-                    </div>
-                  </Link>
-                ) : (
-                  ""
-                )
-              )}
-            </div>
-            <div className="ad__informations">
-              {user.map((user) =>
-                ad.user_id === user.id ? (
-                  <div key={user.id} className="userphoto">
-                    <img
-                      src={
-                        user.profile_path !== "undefined"
-                          ? `http://localhost:3333/files/profile/picture/${user.profile_path}`
-                          : ad_perfil
-                      }
-                      alt="foto_perfil"
-                    ></img>
+      {categorys.map((category) => (
+        <>
+          <h1 className="feed__filter">{`#${category.name}`}</h1>
+          <div className="feed__container">
+            {ads.map((ad) => 
+              ad.category_id == category.id ?
+            (
+              <div key={ad.id} className="feed__ad">
+                <div className="feed__wrapper--image">
+                  {images.map((image) =>
+                    image.product_id === ad.id ? (
+                      <Link to={`/advert/${ad.id}`} key={image.id}>
+                        <div className="ad__image">
+                          <img
+                            src={`http://localhost:3333/files/images/${image.path}`}
+                            alt="anuncio"
+                          />
+                        </div>
+                      </Link>
+                    ) : (
+                      ""
+                    )
+                  )}
+                </div>
+                <div className="ad__informations">
+                  {user.map((user) =>
+                    ad.user_id === user.id ? (
+                      <div key={user.id} className="userphoto">
+                        <img
+                          src={
+                            user.profile_path !== "undefined"
+                              ? `http://localhost:3333/files/profile/picture/${user.profile_path}`
+                              : ad_perfil
+                          }
+                          alt="foto_perfil"
+                        ></img>
+                      </div>
+                    ) : (
+                      ""
+                    )
+                  )}
+                  <div className="ad__informations--left">
+                    <p>{ad.title}</p>
+                    {categorys.map((category) =>
+                      ad.category_id === category.id ? (
+                        <span key={category.id}>{category.name}</span>
+                      ) : (
+                        ""
+                      )
+                    )}
+                    <h3>{`R$ ${ad.price}`}</h3>
                   </div>
-                ) : (
-                  ""
-                )
-              )}
-              <div className="ad__informations--left">
-                <p>{ad.title}</p>
-                {categorys.map((category) =>
-                  ad.category_id === category.id ? (
-                    <span key={category.id}>{category.name}</span>
-                  ) : (
-                    ""
-                  )
-                )}
-                <h3>{`R$ ${ad.price}`}</h3>
+                </div>
               </div>
-            </div>
+            ):"")}
           </div>
-        ))}
-      </div>
+        </>
+      ))}
     </div>
   );
 }

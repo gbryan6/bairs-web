@@ -66,18 +66,22 @@ function AdInfo(props) {
     <div className="ad__infos">
       {ad.map((ad) => (
         <div key={ad.id} className="ad__content--all">
-          {images.map((image) =>
-            image.product_id === ad.id ? (
-              <div key={image.id} className="info__image">
-                <img
-                  src={`http://localhost:3333/files/images/${image.path}`}
-                  alt="Foto do anuncio"
-                />
-              </div>
-            ) : (
-              ""
-            )
-          )}
+          <div className="info__image">
+            <div className="info__wrapper--image">
+              {images.map((image) =>
+                image.product_id === ad.id ? (
+                  <div key={image.id}>
+                    <img
+                      src={`http://localhost:3333/files/images/${image.path}`}
+                      alt="Foto do anuncio"
+                    />
+                  </div>
+                ) : (
+                  ""
+                )
+              )}
+            </div>
+          </div>
           <div className="ad__moreInfo">
             <div className="wrapper__title">
               <h1 className="ad__title">{ad.title}</h1>

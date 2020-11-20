@@ -11,5 +11,5 @@
 .my__ads {
   width: 80%;
   overflow-y: hidden;
-  margin: 60px auto;
+  margin: 60px auto auto;
 }

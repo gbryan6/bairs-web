@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 
 import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import ad_image from "../images/camiseta-formandos.jpg";
 import "../styles/components/myads.css";
 import api from "../services/api";
+
+
 function MyAds() {
   const userId = parseInt(localStorage.getItem("userId"));
 
   const [ads, setAds] = useState([]);
   const [images, setImages] = useState([]);
-  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     async function loaddata() {
@@ -56,10 +58,12 @@ function MyAds() {
 
   return (
     <div>
+      <div className="myads__list">
       <h2 className="myads__filter">#Meus anúncios</h2>
       {ads.map((ad) =>
         ad.user_id === userId ? (
           <div key={ad.id} className="myads__container">
+            <Link to={`/advert/${ad.id}`}>
             <div className="myads__wrapper--image">
               {images.map((image) =>
                 image.product_id === ad.id ? (
@@ -74,6 +78,7 @@ function MyAds() {
                 )
               )}
             </div>
+            </Link>
             <div className="myads__name">
               <h3 className="myads__name--title">{ad.title}</h3>
               <p>{ad.description}</p>
@@ -103,6 +108,7 @@ function MyAds() {
           ""
         )
       )}
+      </div>
     </div>
   );
 }
